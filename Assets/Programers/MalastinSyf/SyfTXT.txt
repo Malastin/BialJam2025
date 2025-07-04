@@ -21,16 +21,16 @@ Kombat postaci
 Czary maga
 	Cooldowny/Mana
 
-	- Spowolnienie (Wstępnie już jest tylko jeszcze zadecydować jak będzie dizałać)
+	- (Done) Spowolnienie
 	- Atak szału (Gracz traci na chwile kontrole i akcje podejmuje losowo)
 	- Odwrucone sterowanie
-	- Podpalenie (Części mapy)
+	- (Done) Podpalenie
 	- Zdmuchnięcie (wiatr halny ciernie po lewo/prawo areny)
-	- Pole wybuchowe po kolizi
+	- (Done)Pole wybuchowe po kolizi
 	- Spawn obiektów które mogą leczyć lub ranić
-	- Przyspieszenie czasu (AOE działa na dwóch) (To już będzie dało się zrobić w teori)
-	- Zmniejszenie/powiększenie broni
-	- Zmniejszenie powiększenie gracza
+	- (Done)Przyspieszenie czasu (Obszarowe)
+	- (Done)Zmniejszenie/powiększenie broni
+	- (Done)Zmniejszenie powiększenie gracza
 	- zabijanie graczy
 	- rzucenie gracza w pizdu
 	

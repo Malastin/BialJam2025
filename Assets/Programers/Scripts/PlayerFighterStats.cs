@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerFighterStats : MonoBehaviour
 {
     //wszystkie zmienne narazie publiczne potem bêdziemy kombinowaæ by zmniejszyæ iloœæ syfu
+    //animacje chodzenie skalowac z movespeedem a niamacjie ataku z attack speedem
 
     public int health;
     public int healthMax;
@@ -26,8 +27,10 @@ public class PlayerFighterStats : MonoBehaviour
         //podstawka 2 dmg aby mocny atak robi³ ze 4 a ten szybki 1 dmg
         baseDamage = 2;
 
-        baseMovementSpeed = 10f;
+        baseMovementSpeed = 2f;
+        movementSpeed = baseMovementSpeed;
         baseAttackSpeed = 1f;
+        attackSpeed = baseAttackSpeed;
     }
 
     public void SetPlayerMovespeedToBase()
@@ -46,6 +49,7 @@ public class PlayerFighterStats : MonoBehaviour
     {
         //funkcja która bêdzie do zadawania obra¿eñ gracz¹
         health -= damageAmount;
+        Debug.Log("I go dmg " + damageAmount + " | Hp: " + health + "/" + healthMax);
 
         if (health <= 0)
         {

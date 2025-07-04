@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     private Vector2 inputMovement;
     private byte jumpsAmount;
     private bool canDash = true;
+    private bool blockMovement = false;
+    private GameObject tempObj;
 
     private void Start()
     {
@@ -23,8 +25,12 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (blockMovement)
+        {
+            inputMovement = Vector2.zero;
+            rb2D.linearVelocityY -= 3f;
+        }
         rb2D.linearVelocity += new Vector2(inputMovement.x, 0) * speed * playerFighterStats.movementSpeed * 0.02f;
-        
     }
 
     public void Jump(InputAction.CallbackContext callback)
@@ -106,6 +112,23 @@ public class PlayerController : MonoBehaviour
                 obj.transform.localPosition += new Vector3(0.5f, 0, 0);
             }
             obj.GetComponent<PodstawowyAtakGracza>().caster = gameObject;
+            obj.GetComponent<PodstawowyAtakGracza>().damage = 2;
+            obj.GetComponent<PodstawowyAtakGracza>().killOnTime = true;
+        }
+    }
+
+    public void CastFallingAttack(InputAction.CallbackContext callback)
+    {
+        if (callback.phase == InputActionPhase.Started && tempObj == null)
+        {
+            var obj = Instantiate(basicAttac, transform);
+            obj.transform.position = transform.position;
+            obj.transform.localEulerAngles += new Vector3(0, 0, 90);
+            obj.GetComponent<PodstawowyAtakGracza>().caster = gameObject;
+            obj.GetComponent<PodstawowyAtakGracza>().damage = 4;
+            obj.GetComponent<PodstawowyAtakGracza>().killOnTime = false;
+            tempObj = obj;
+            blockMovement = true;
         }
     }
 
@@ -114,6 +137,11 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             jumpsAmount = 2;
+            blockMovement = false;
+            if (tempObj != null)
+            {
+                Destroy(tempObj);
+            }
         }
     }
 }

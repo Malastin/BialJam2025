@@ -42,9 +42,27 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "P1AttackSky",
+                    "type": "Button",
+                    "id": "bdab2708-bdbf-490c-8b0c-b9fe48d45907",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "P2AttackLight",
                     "type": "Button",
                     "id": "96d6e9d5-c08c-496b-a13c-3a9a6c33ae13",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "P2AttackSky",
+                    "type": "Button",
+                    "id": "a1fad099-c3fa-4656-8b76-629d28e81017",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -346,12 +364,34 @@
                 },
                 {
                     "name": "",
+                    "id": "1fab7db3-2fa6-4d10-ae75-e4f0a49ef6d0",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "P1AttackSky",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "2fbb8797-e340-4244-b9a8-957b1843d032",
                     "path": "<Keyboard>/numpad1",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
                     "action": "P2AttackLight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "175fb6ef-d6f7-4d43-8e3d-d9d649597fa6",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "P2AttackSky",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

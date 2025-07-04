@@ -128,9 +128,27 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""P1AttackSky"",
+                    ""type"": ""Button"",
+                    ""id"": ""bdab2708-bdbf-490c-8b0c-b9fe48d45907"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""P2AttackLight"",
                     ""type"": ""Button"",
                     ""id"": ""96d6e9d5-c08c-496b-a13c-3a9a6c33ae13"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""P2AttackSky"",
+                    ""type"": ""Button"",
+                    ""id"": ""a1fad099-c3fa-4656-8b76-629d28e81017"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -432,12 +450,34 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""1fab7db3-2fa6-4d10-ae75-e4f0a49ef6d0"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""P1AttackSky"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""2fbb8797-e340-4244-b9a8-957b1843d032"",
                     ""path"": ""<Keyboard>/numpad1"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",
                     ""action"": ""P2AttackLight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""175fb6ef-d6f7-4d43-8e3d-d9d649597fa6"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""P2AttackSky"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1238,7 +1278,9 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         m_Player_P2Move = m_Player.FindAction("P2Move", throwIfNotFound: true);
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_P1AttackLight = m_Player.FindAction("P1AttackLight", throwIfNotFound: true);
+        m_Player_P1AttackSky = m_Player.FindAction("P1AttackSky", throwIfNotFound: true);
         m_Player_P2AttackLight = m_Player.FindAction("P2AttackLight", throwIfNotFound: true);
+        m_Player_P2AttackSky = m_Player.FindAction("P2AttackSky", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_Crouch = m_Player.FindAction("Crouch", throwIfNotFound: true);
         m_Player_P1Jump = m_Player.FindAction("P1Jump", throwIfNotFound: true);
@@ -1344,7 +1386,9 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_P2Move;
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_P1AttackLight;
+    private readonly InputAction m_Player_P1AttackSky;
     private readonly InputAction m_Player_P2AttackLight;
+    private readonly InputAction m_Player_P2AttackSky;
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_Crouch;
     private readonly InputAction m_Player_P1Jump;
@@ -1381,9 +1425,17 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @P1AttackLight => m_Wrapper.m_Player_P1AttackLight;
         /// <summary>
+        /// Provides access to the underlying input action "Player/P1AttackSky".
+        /// </summary>
+        public InputAction @P1AttackSky => m_Wrapper.m_Player_P1AttackSky;
+        /// <summary>
         /// Provides access to the underlying input action "Player/P2AttackLight".
         /// </summary>
         public InputAction @P2AttackLight => m_Wrapper.m_Player_P2AttackLight;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/P2AttackSky".
+        /// </summary>
+        public InputAction @P2AttackSky => m_Wrapper.m_Player_P2AttackSky;
         /// <summary>
         /// Provides access to the underlying input action "Player/Interact".
         /// </summary>
@@ -1454,9 +1506,15 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
             @P1AttackLight.started += instance.OnP1AttackLight;
             @P1AttackLight.performed += instance.OnP1AttackLight;
             @P1AttackLight.canceled += instance.OnP1AttackLight;
+            @P1AttackSky.started += instance.OnP1AttackSky;
+            @P1AttackSky.performed += instance.OnP1AttackSky;
+            @P1AttackSky.canceled += instance.OnP1AttackSky;
             @P2AttackLight.started += instance.OnP2AttackLight;
             @P2AttackLight.performed += instance.OnP2AttackLight;
             @P2AttackLight.canceled += instance.OnP2AttackLight;
+            @P2AttackSky.started += instance.OnP2AttackSky;
+            @P2AttackSky.performed += instance.OnP2AttackSky;
+            @P2AttackSky.canceled += instance.OnP2AttackSky;
             @Interact.started += instance.OnInteract;
             @Interact.performed += instance.OnInteract;
             @Interact.canceled += instance.OnInteract;
@@ -1504,9 +1562,15 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
             @P1AttackLight.started -= instance.OnP1AttackLight;
             @P1AttackLight.performed -= instance.OnP1AttackLight;
             @P1AttackLight.canceled -= instance.OnP1AttackLight;
+            @P1AttackSky.started -= instance.OnP1AttackSky;
+            @P1AttackSky.performed -= instance.OnP1AttackSky;
+            @P1AttackSky.canceled -= instance.OnP1AttackSky;
             @P2AttackLight.started -= instance.OnP2AttackLight;
             @P2AttackLight.performed -= instance.OnP2AttackLight;
             @P2AttackLight.canceled -= instance.OnP2AttackLight;
+            @P2AttackSky.started -= instance.OnP2AttackSky;
+            @P2AttackSky.performed -= instance.OnP2AttackSky;
+            @P2AttackSky.canceled -= instance.OnP2AttackSky;
             @Interact.started -= instance.OnInteract;
             @Interact.performed -= instance.OnInteract;
             @Interact.canceled -= instance.OnInteract;
@@ -1860,12 +1924,26 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnP1AttackLight(InputAction.CallbackContext context);
         /// <summary>
+        /// Method invoked when associated input action "P1AttackSky" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnP1AttackSky(InputAction.CallbackContext context);
+        /// <summary>
         /// Method invoked when associated input action "P2AttackLight" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnP2AttackLight(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "P2AttackSky" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnP2AttackSky(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "Interact" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>

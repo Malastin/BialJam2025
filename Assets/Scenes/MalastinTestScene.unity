@@ -770,7 +770,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   healthMax: 0
-  baseDamage: 0
   baseMovementSpeed: 0
   movementSpeed: 0
   baseAttackSpeed: 0
@@ -977,7 +976,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   healthMax: 0
-  baseDamage: 0
   baseMovementSpeed: 0
   movementSpeed: 0
   baseAttackSpeed: 0
@@ -1982,6 +1980,38 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 96d6e9d5-c08c-496b-a13c-3a9a6c33ae13
     m_ActionName: 'Player/P2AttackLight[/Keyboard/numpad1]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1258625661}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: CastFallingAttack
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: bdab2708-bdbf-490c-8b0c-b9fe48d45907
+    m_ActionName: 'Player/P1AttackSky[/Keyboard/s]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 956932403}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: CastFallingAttack
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: a1fad099-c3fa-4656-8b76-629d28e81017
+    m_ActionName: 'Player/P2AttackSky[/Keyboard/downArrow]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

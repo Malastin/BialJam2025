@@ -181,7 +181,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: -7310013151035586293, guid: 6b3f8747579abc1478e418c87dd6d871, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -226,17 +226,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.0038576126, y: -0.0035889149}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0.049999997, y: 0.049999997, z: 0.049999997, w: 0.049999997}
+    border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.16}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 0.16, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.16672802, y: 0.1642251}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!4 &465672670
 Transform:
@@ -247,8 +247,8 @@ Transform:
   m_GameObject: {fileID: 465672667}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.96, y: -1.85, z: 0.045262687}
-  m_LocalScale: {x: 39.987335, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -4.14, z: 0.045262687}
+  m_LocalScale: {x: 17.49878, y: 0.8950926, z: 0.1005526}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -287,8 +287,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerFighterStats: {fileID: 712498092}
-  rb2D: {fileID: 712498089}
-  speed: 5
+  speed: 25
+  jumpPower: 20
 --- !u!61 &712498088
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -333,7 +333,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.25023782, y: 0.30814052}
+  m_Size: {x: 1.2826259, y: 1.7710012}
   m_EdgeRadius: 0
 --- !u!50 &712498089
 Rigidbody2D:
@@ -426,8 +426,8 @@ Transform:
   m_GameObject: {fileID: 712498085}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.303, y: -1.145, z: 0.045262687}
-  m_LocalScale: {x: 1.8043, y: 1.8043, z: 1.8043}
+  m_LocalPosition: {x: 0.93, y: -1.39, z: 0.045262687}
+  m_LocalScale: {x: 0.7836255, y: 0.7836255, z: 0.7836255}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -629,7 +629,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -651,11 +651,8 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Positions:
-  - {x: -1.540425, y: 1.2702127, z: 1}
-  - {x: 1.4595753, y: 1.2702127, z: 1}
-  - {x: 1.4595753, y: -1.229788, z: 1}
-  - {x: -1.540425, y: -1.229788, z: 1}
-  - {x: -1.540425, y: 1.2702127, z: 1}
+  - {x: -2, y: 0, z: 1}
+  - {x: 2, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -676,8 +673,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 1, g: 0.89338535, b: 0, a: 1}
+      key1: {r: 1, g: 0.89338535, b: 0, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -700,8 +697,8 @@ LineRenderer:
       atime5: 0
       atime6: 0
       atime7: 0
-      m_Mode: 0
-      m_ColorSpace: -1
+      m_Mode: 1
+      m_ColorSpace: 0
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
     numCornerVertices: 0
@@ -724,7 +721,7 @@ Transform:
   m_GameObject: {fileID: 944638332}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.44, y: 1.48, z: -0.012056312}
+  m_LocalPosition: {x: 0, y: -4.75, z: -0.012056312}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -764,8 +761,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerFighterStats: {fileID: 1142232209}
-  rb2D: {fileID: 1142232206}
-  speed: 5
+  speed: 25
+  jumpPower: 20
 --- !u!61 &1142232205
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -810,7 +807,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.25023782, y: 0.30814052}
+  m_Size: {x: 1.2402104, y: 1.7246523}
   m_EdgeRadius: 0
 --- !u!50 &1142232206
 Rigidbody2D:
@@ -836,8 +833,8 @@ Rigidbody2D:
     serializedVersion: 2
     m_Bits: 0
   m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_SleepingMode: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!212 &1142232207
 SpriteRenderer:
@@ -903,8 +900,8 @@ Transform:
   m_GameObject: {fileID: 1142232202}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.32, y: -1.107, z: 0.045262687}
-  m_LocalScale: {x: 1.8043, y: 1.8043, z: 1.8043}
+  m_LocalPosition: {x: -2.27, y: -1.107, z: 0.045262687}
+  m_LocalScale: {x: 0.7394249, y: 0.7394249, z: 0.7394249}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -958,6 +955,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spellCrosshair: {fileID: 944638332}
+  crosshairRestingPosition: {x: 0, y: 0, z: 0}
 --- !u!4 &1196595962
 Transform:
   m_ObjectHideFlags: 0
@@ -982,7 +980,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1829252117}
-  - component: {fileID: 1829252116}
   - component: {fileID: 1829252115}
   m_Layer: 0
   m_Name: InputManager
@@ -1018,9 +1015,9 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1829252116}
-        m_TargetAssemblyTypeName: PlayerInputController, Assembly-CSharp
-        m_MethodName: P1Movement
+      - m_Target: {fileID: 1142232204}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: Movement
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1034,9 +1031,9 @@ MonoBehaviour:
     m_ActionName: 'Player/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1829252116}
-        m_TargetAssemblyTypeName: PlayerInputController, Assembly-CSharp
-        m_MethodName: SpellAim
+      - m_Target: {fileID: 1196595961}
+        m_TargetAssemblyTypeName: SpellController, Assembly-CSharp
+        m_MethodName: Aim
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1118,9 +1115,9 @@ MonoBehaviour:
     m_ActionName: UI/TrackedDeviceOrientation
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1829252116}
-        m_TargetAssemblyTypeName: PlayerInputController, Assembly-CSharp
-        m_MethodName: P2Movement
+      - m_Target: {fileID: 712498087}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: Movement
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1132,26 +1129,47 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: e7d7d5e2-4e04-4e7a-a4bf-6c2e0ed2e21e
     m_ActionName: 'Player/P2Move[/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3c0b79ce-775c-4948-98a4-77b1a4e712a4
+    m_ActionName: 'Player/P2Jump[/Keyboard/upArrow,/XInputControllerWindows/buttonSouth]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: cf0eaf29-1a76-4026-97e5-6f800fa5a833
+    m_ActionName: 'Player/P2Dash[/Keyboard/rightCtrl,/XInputControllerWindows/dpad/left]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1196595961}
+        m_TargetAssemblyTypeName: SpellController, Assembly-CSharp
+        m_MethodName: CastSpell
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 5c162312-5276-4cb2-91e9-65f8aa4d020c
+    m_ActionName: 'Player/SpellCast[/XInputControllerWindows/buttonSouth]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b660b742-aae8-4563-95aa-5d67f150445b
+    m_ActionName: 'Player/SpellSelect2[/XInputControllerWindows/buttonWest]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 66611ddf-4ced-4933-91b7-60518bb0ae6a
+    m_ActionName: 'Player/SpellSelect3[/XInputControllerWindows/buttonNorth]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 651f049c-b2b9-4d71-98ac-e4bf0d695989
+    m_ActionName: 'Player/SpellSelect4[/XInputControllerWindows/buttonEast]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &1829252116
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1829252114}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b29387c86feba4458728f23503eae6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player1: {fileID: 1142232202}
-  player2: {fileID: 712498085}
-  spellManager: {fileID: 1196595960}
 --- !u!4 &1829252117
 Transform:
   m_ObjectHideFlags: 0

@@ -7,7 +7,6 @@ public class PlayerFighterStats : MonoBehaviour
 
     public int health;
     public int healthMax;
-    public int baseDamage;
     public float baseMovementSpeed;
     public float movementSpeed;
     public float baseAttackSpeed;
@@ -23,9 +22,6 @@ public class PlayerFighterStats : MonoBehaviour
     {
         health = 40;
         healthMax = health;
-
-        //podstawka 2 dmg aby mocny atak robi³ ze 4 a ten szybki 1 dmg
-        baseDamage = 2;
 
         baseMovementSpeed = 2f;
         movementSpeed = baseMovementSpeed;

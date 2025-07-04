@@ -3,7 +3,8 @@ Typ: Bijatyka dwóch graczy na arenie gdzie trzeci gracz jest czarodziejem
 Co jest do zaprogramowania
 
 Ograniczenie czasowe walki graczy
-jeśli skończy się czas graczą to czarodziej może ich ranić wedle uznania
+
+Po 30 sekundach wybrany gracz przez czarodzieja zamienia się w potwora
 
 Kombat postaci
 	Staty:
@@ -23,7 +24,6 @@ Czary maga
 	Cooldowny/Mana
 
 	- (Done) Spowolnienie
-	- Atak szału (Gracz traci na chwile kontrole i akcje podejmuje losowo)
 	- Odwrucone sterowanie
 	- (Done) Podpalenie
 	- Zdmuchnięcie (wiatr halny ciernie po lewo/prawo areny)
@@ -32,8 +32,9 @@ Czary maga
 	- (Done)Przyspieszenie czasu (Obszarowe)
 	- (Done)Zmniejszenie/powiększenie broni
 	- (Done)Zmniejszenie powiększenie gracza
-	- zabijanie graczy
 	- rzucenie gracza w pizdu
 	
 	(Może damy)
 	- Zamienienie graczy na stałe
+	- Atak szału (Gracz traci na chwile kontrole i akcje podejmuje losowo)
+	- zabijanie graczy

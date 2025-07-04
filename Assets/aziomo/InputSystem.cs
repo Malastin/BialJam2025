@@ -122,7 +122,7 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                     ""name"": ""Attack"",
                     ""type"": ""Button"",
                     ""id"": ""6c2ab1b8-8984-453a-af3d-a3c78ae1679a"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -164,9 +164,18 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Previous"",
+                    ""name"": ""P1Dash"",
                     ""type"": ""Button"",
                     ""id"": ""2776c80d-3c14-4091-8c56-d04ced07a2b0"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""P2Dash"",
+                    ""type"": ""Button"",
+                    ""id"": ""cf0eaf29-1a76-4026-97e5-6f800fa5a833"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -176,7 +185,7 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                     ""name"": ""Next"",
                     ""type"": ""Button"",
                     ""id"": ""b7230bb6-fc9b-4f52-8b25-f5e19cb2c2ba"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -591,11 +600,11 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""1534dc16-a6aa-499d-9c3a-22b47347b52a"",
-                    ""path"": ""<Keyboard>/1"",
+                    ""path"": ""<Keyboard>/leftShift"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Previous"",
+                    ""action"": ""P1Dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -606,7 +615,29 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""Previous"",
+                    ""action"": ""P1Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a1b01b52-134e-4881-9d89-d8dfb71297ff"",
+                    ""path"": ""<Keyboard>/rightCtrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""P2Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1ca241e8-2dd7-4a0b-aca5-a678a64aea14"",
+                    ""path"": ""<Gamepad>/dpad/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""P2Dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1246,7 +1277,8 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         m_Player_Crouch = m_Player.FindAction("Crouch", throwIfNotFound: true);
         m_Player_P1Jump = m_Player.FindAction("P1Jump", throwIfNotFound: true);
         m_Player_P2Jump = m_Player.FindAction("P2Jump", throwIfNotFound: true);
-        m_Player_Previous = m_Player.FindAction("Previous", throwIfNotFound: true);
+        m_Player_P1Dash = m_Player.FindAction("P1Dash", throwIfNotFound: true);
+        m_Player_P2Dash = m_Player.FindAction("P2Dash", throwIfNotFound: true);
         m_Player_Next = m_Player.FindAction("Next", throwIfNotFound: true);
         m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
         // UI
@@ -1350,7 +1382,8 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Crouch;
     private readonly InputAction m_Player_P1Jump;
     private readonly InputAction m_Player_P2Jump;
-    private readonly InputAction m_Player_Previous;
+    private readonly InputAction m_Player_P1Dash;
+    private readonly InputAction m_Player_P2Dash;
     private readonly InputAction m_Player_Next;
     private readonly InputAction m_Player_Sprint;
     /// <summary>
@@ -1397,9 +1430,13 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @P2Jump => m_Wrapper.m_Player_P2Jump;
         /// <summary>
-        /// Provides access to the underlying input action "Player/Previous".
+        /// Provides access to the underlying input action "Player/P1Dash".
         /// </summary>
-        public InputAction @Previous => m_Wrapper.m_Player_Previous;
+        public InputAction @P1Dash => m_Wrapper.m_Player_P1Dash;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/P2Dash".
+        /// </summary>
+        public InputAction @P2Dash => m_Wrapper.m_Player_P2Dash;
         /// <summary>
         /// Provides access to the underlying input action "Player/Next".
         /// </summary>
@@ -1458,9 +1495,12 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
             @P2Jump.started += instance.OnP2Jump;
             @P2Jump.performed += instance.OnP2Jump;
             @P2Jump.canceled += instance.OnP2Jump;
-            @Previous.started += instance.OnPrevious;
-            @Previous.performed += instance.OnPrevious;
-            @Previous.canceled += instance.OnPrevious;
+            @P1Dash.started += instance.OnP1Dash;
+            @P1Dash.performed += instance.OnP1Dash;
+            @P1Dash.canceled += instance.OnP1Dash;
+            @P2Dash.started += instance.OnP2Dash;
+            @P2Dash.performed += instance.OnP2Dash;
+            @P2Dash.canceled += instance.OnP2Dash;
             @Next.started += instance.OnNext;
             @Next.performed += instance.OnNext;
             @Next.canceled += instance.OnNext;
@@ -1502,9 +1542,12 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
             @P2Jump.started -= instance.OnP2Jump;
             @P2Jump.performed -= instance.OnP2Jump;
             @P2Jump.canceled -= instance.OnP2Jump;
-            @Previous.started -= instance.OnPrevious;
-            @Previous.performed -= instance.OnPrevious;
-            @Previous.canceled -= instance.OnPrevious;
+            @P1Dash.started -= instance.OnP1Dash;
+            @P1Dash.performed -= instance.OnP1Dash;
+            @P1Dash.canceled -= instance.OnP1Dash;
+            @P2Dash.started -= instance.OnP2Dash;
+            @P2Dash.performed -= instance.OnP2Dash;
+            @P2Dash.canceled -= instance.OnP2Dash;
             @Next.started -= instance.OnNext;
             @Next.performed -= instance.OnNext;
             @Next.canceled -= instance.OnNext;
@@ -1868,12 +1911,19 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnP2Jump(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "Previous" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "P1Dash" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnPrevious(InputAction.CallbackContext context);
+        void OnP1Dash(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "P2Dash" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnP2Dash(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "Next" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>

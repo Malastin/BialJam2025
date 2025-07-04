@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private PlayerFighterStats playerFighterStats;
+    [SerializeField] private GameObject basicAttac;
     private Rigidbody2D rb2D;
     private SpriteRenderer spriteRenderer;
 
@@ -87,6 +88,24 @@ public class PlayerController : MonoBehaviour
         if (inputMovement.x < 0)
         {
             spriteRenderer.flipX = true;
+        }
+    }
+
+    public void CastBasicAttack(InputAction.CallbackContext callback)
+    {
+        if (callback.phase == InputActionPhase.Started)
+        {
+            var obj = Instantiate(basicAttac, transform.parent);
+            obj.transform.position = transform.position;
+            if (spriteRenderer.flipX)
+            {
+                obj.transform.localPosition += new Vector3(-0.5f, 0, 0);
+            }
+            else
+            {
+                obj.transform.localPosition += new Vector3(0.5f, 0, 0);
+            }
+            obj.GetComponent<PodstawowyAtakGracza>().caster = gameObject;
         }
     }
 

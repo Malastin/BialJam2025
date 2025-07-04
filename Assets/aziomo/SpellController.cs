@@ -4,33 +4,79 @@ using UnityEngine.InputSystem;
 public class SpellController : MonoBehaviour
 {
     public GameObject spellCrosshair;
+    public Vector3 crosshairRestingPosition;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private bool isCasting = false;
+
     void Start()
     {
+        if (spellCrosshair == null)
+        {
+            Debug.LogError("Spell crosshair is not assigned in the SpellController!");
+        }
+        else
+        {
+            crosshairRestingPosition = spellCrosshair.transform.position;
+        }
 
     }
 
-    // Update is called once per frame
     void Update()
     {
+        if (isCasting)
+        {
+            if (spellCrosshair != null)
+            {
+                var line = spellCrosshair.GetComponent<LineRenderer>();
+                Vector3[] points = new Vector3[2];
+                line.GetPositions(points);
+                points[0] = points[0] + Vector3.left * 0.005f;
+                points[1] = points[1] + Vector3.right * 0.005f;
+                line.SetPositions(points);
+            }
+        }
 
     }
-    
+
     public void Aim(InputAction.CallbackContext input)
     {
         if (input.performed)
         {
             Vector2 aimDirection = input.ReadValue<Vector2>();
-            // Implement aiming logic here, e.g., rotate the spell indicator
+            aimDirection.y = 0;
+
+            // discard input taking into account analog stick deadzone
+            if (aimDirection.magnitude < 0.05f)
+            {
+                aimDirection = Vector2.zero;
+            }
+
             if (spellCrosshair != null)
             {
-                spellCrosshair.transform.position = (Vector2)transform.position + aimDirection.normalized * 2.0f; // Adjust the distance as needed
+                spellCrosshair.transform.position = (Vector2)crosshairRestingPosition + aimDirection * 5.0f;
             }
             else
             {
                 Debug.LogWarning("Spell crosshair is not assigned!");
             }
         }
+    }
+
+    public void CastSpell(InputAction.CallbackContext input)
+    {
+        var line = spellCrosshair.GetComponent<LineRenderer>();
+
+        if (input.performed)
+        {
+            line.enabled = true;
+            isCasting = true;
+        }
+        else if (input.canceled)
+        {
+            isCasting = false;
+            line.SetPositions(new Vector3[] { Vector3.zero, Vector3.zero });
+            line.enabled = false;
+        }
+        
     }
 }

@@ -266,6 +266,7 @@ GameObject:
   - component: {fileID: 712498089}
   - component: {fileID: 712498088}
   - component: {fileID: 712498087}
+  - component: {fileID: 712498092}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Untagged
@@ -285,6 +286,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b18356d2437532e45ac9f86202d60fbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerFighterStats: {fileID: 712498092}
+  rb2D: {fileID: 712498089}
   speed: 5
 --- !u!61 &712498088
 BoxCollider2D:
@@ -324,7 +327,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.22, y: 0.28}
+    oldSize: {x: 1.375, y: 1.75}
     newSize: {x: 0.22, y: 0.28}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -429,6 +432,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &712498092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 712498085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ecf509060b7cf247866ce4c38afd5f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  healthMax: 0
+  baseDamage: 0
+  baseMovementSpeed: 0
+  movementSpeed: 0
+  baseAttackSpeed: 0
+  attackSpeed: 0
 --- !u!1 &892007953
 GameObject:
   m_ObjectHideFlags: 0
@@ -721,6 +743,7 @@ GameObject:
   - component: {fileID: 1142232206}
   - component: {fileID: 1142232205}
   - component: {fileID: 1142232204}
+  - component: {fileID: 1142232209}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Untagged
@@ -740,6 +763,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b18356d2437532e45ac9f86202d60fbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerFighterStats: {fileID: 1142232209}
+  rb2D: {fileID: 1142232206}
   speed: 5
 --- !u!61 &1142232205
 BoxCollider2D:
@@ -779,7 +804,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.22, y: 0.28}
+    oldSize: {x: 1.375, y: 1.75}
     newSize: {x: 0.22, y: 0.28}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -884,6 +909,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1142232209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1142232202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ecf509060b7cf247866ce4c38afd5f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  healthMax: 0
+  baseDamage: 0
+  baseMovementSpeed: 0
+  movementSpeed: 0
+  baseAttackSpeed: 0
+  attackSpeed: 0
 --- !u!1 &1196595960
 GameObject:
   m_ObjectHideFlags: 0

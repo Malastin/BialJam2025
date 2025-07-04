@@ -541,7 +541,7 @@ MonoBehaviour:
   playerFighterStats: {fileID: 1258625660}
   rb2D: {fileID: 0}
   speed: 25
-  jumpPower: 0
+  jumpPower: 20
 --- !u!50 &1258625662
 Rigidbody2D:
   serializedVersion: 5
@@ -554,7 +554,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDamping: 10
   m_AngularDamping: 0.05
   m_GravityScale: 1
@@ -698,6 +698,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: e7d7d5e2-4e04-4e7a-a4bf-6c2e0ed2e21e
     m_ActionName: 'Player/P2Move[/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3c0b79ce-775c-4948-98a4-77b1a4e712a4
+    m_ActionName: 'Player/P2Jump[/Keyboard/upArrow]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

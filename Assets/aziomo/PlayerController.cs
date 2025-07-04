@@ -28,7 +28,6 @@ public class PlayerController : MonoBehaviour
             rb2D.linearVelocityY += jumpPower;
             canJump = false;
         }
-        
     }
 
     public void Movement(InputAction.CallbackContext input)
@@ -36,11 +35,20 @@ public class PlayerController : MonoBehaviour
         inputMovement = input.ReadValue<Vector2>();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("Ground"))
         {
             canJump = true;
         }
     }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            canJump = false;
+        }
+    }
+
 }

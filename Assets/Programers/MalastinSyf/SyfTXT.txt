@@ -12,6 +12,7 @@ Kombat postaci
 		Prędkość ruchu
 
 	- Skok
+	- Skok (Charged) (Pozwala na wbijanie miecza w ryja dużo dmg)
 	- Dash
 	- Unik (bariera/nietykalność)
 	- Atak zwykły (Można uniknąć i zablokować)

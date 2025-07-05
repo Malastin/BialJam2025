@@ -23,6 +23,10 @@ public class PlayerController : MonoBehaviour
     private bool blockNextAttack;
     private bool fallAttack;
     private bool ground;
+    private bool closeToWall;
+    private bool grabedToWall;
+    public bool wallXisBigger;
+    private bool tryGrabing;
 
     private void Start()
     {
@@ -40,23 +44,70 @@ public class PlayerController : MonoBehaviour
                 UpdateAnimationOfPlayer();
             }
         }
-        if (!ground)
+        if (!ground && !grabedToWall)
         {
             rb2D.gravityScale += 0.3f;
         }
-        if (blockMovement)
+        if (!grabedToWall)
         {
-            rb2D.linearVelocity += new Vector2(0, 0) * speed * playerFighterStats.movementSpeed * 0.02f;
-            rb2D.linearVelocityY -= 3f;
+            if (blockMovement)
+            {
+                rb2D.linearVelocity += new Vector2(0, 0) * speed * playerFighterStats.movementSpeed * 0.02f;
+                rb2D.linearVelocityY -= 3f;
+            }
+            else
+            {
+                rb2D.linearVelocity += new Vector2(inputMovement.x, 0) * speed * playerFighterStats.movementSpeed * 0.02f;
+            }
+        }
+        if (inputMovement.x > 0 && wallXisBigger)
+        {
+            tryGrabing = true;
+        }else if (inputMovement.x < 0 && !wallXisBigger)
+        {
+            tryGrabing = true;
         }
         else
         {
-            rb2D.linearVelocity += new Vector2(inputMovement.x, 0) * speed * playerFighterStats.movementSpeed * 0.02f;
+            tryGrabing = false;
+        }
+
+        if (closeToWall && Mathf.Abs(rb2D.linearVelocityY) < 2.8f && !ground && tryGrabing)
+        {
+            if (!grabedToWall)
+            {
+                grabedToWall = true;
+                blockMovement = true;
+                inOtherAnimation = true;
+                spriteRenderer.flipX = wallXisBigger;
+                rb2D.linearVelocity = Vector2.zero;
+                animationState = PlayerStates.grabedToWall;
+                rb2D.gravityScale = 0;
+                UpdateAnimationOfPlayer();
+            }
         }
     }
 
     public void Jump(InputAction.CallbackContext callback)
     {
+        if (grabedToWall && callback.phase == InputActionPhase.Started)
+        {
+            rb2D.linearVelocityY += jumpPower;
+            if (spriteRenderer.flipX)
+            {
+                rb2D.linearVelocityX += -10;
+            }
+            else
+            {
+                rb2D.linearVelocityX += 10;
+            }
+            grabedToWall = false;
+            inOtherAnimation = false;
+            blockMovement = false;
+            UpdateAnimationOfPlayer();
+            return;
+
+        }
         if (jumpsAmount > 0 && callback.phase == InputActionPhase.Started)
         {
             rb2D.linearVelocityY += jumpPower;
@@ -122,11 +173,11 @@ public class PlayerController : MonoBehaviour
     public void Movement(InputAction.CallbackContext input)
     {
         inputMovement = input.ReadValue<Vector2>();
-        if (inputMovement.x > 0)
+        if (inputMovement.x > 0 && !inOtherAnimation)
         {
             spriteRenderer.flipX = false;
         }
-        if (inputMovement.x < 0)
+        if (inputMovement.x < 0 && !inOtherAnimation)
         {
             spriteRenderer.flipX = true;
         }
@@ -222,17 +273,28 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            closeToWall = true;
+        }
     }
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        ground = true;
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            ground = true;
+        }
         if (fallAttack)
         {
             fallAttack = false;
             blockNextAttack = false;
             inOtherAnimation = false;
             UpdateAnimationOfPlayer();
+        }
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            closeToWall = true;
         }
     }
 
@@ -241,6 +303,10 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             ground = false;
+        }
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            closeToWall = false;
         }
     }
 
@@ -271,6 +337,9 @@ public class PlayerController : MonoBehaviour
             case PlayerStates.dash:
                 animator.speed = 1f;
                 animator.Play("Dash");
+                break;
+            case PlayerStates.grabedToWall:
+                animator.Play("GrabWall");
                 break;
         }
     }

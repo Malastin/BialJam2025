@@ -24,12 +24,16 @@ public class GameManager : MonoBehaviour{
         NextMap();
     }
     public static void NextMap(){
+        FadeAway.GoDark();
+        instance.Invoke(nameof(LoadMap), .17f);
+    }
+    private void LoadMap(){
         SceneManager.LoadScene(instance.levelNames[Random.Range(0, instance.levelNames.Length)]);
         ResurrectPlayers();
     }
     private static void ResurrectPlayers(){
         foreach (var player in instance.playerReferences){
-            if(player != null)
+            if (player != null)
                 player.GetComponent<IHealth>().Resurrect();
         }
     }

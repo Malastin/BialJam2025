@@ -80,7 +80,7 @@ public class PlayerFighterStats : MonoBehaviour, IHealth
         while (true)
         {
             yield return new WaitForSeconds(3f);
-            GameManager.NextMap();
+            GameManager.PlayerDied(GetComponent<PlayerAddReferenceToManager>().id);
             yield break;
         }
     }

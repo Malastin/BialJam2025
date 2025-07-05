@@ -656,7 +656,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 8af3ddb6b19bcb34ca19f62ede6e3ee3, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -3332,7 +3332,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2152803979369352950, guid: aed2071600084e64e8981384b87c1f43, type: 3}
       propertyPath: orthographic size
-      value: 6
+      value: 5.625
       objectReference: {fileID: 0}
     - target: {fileID: 4112506089420685028, guid: aed2071600084e64e8981384b87c1f43, type: 3}
       propertyPath: m_LocalPosition.x

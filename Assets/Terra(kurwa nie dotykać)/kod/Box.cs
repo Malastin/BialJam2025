@@ -14,4 +14,6 @@ public class Box : MonoBehaviour, IHealth{
     }
     public void Heal(int heal){}
     public void Resurrect(){}
+
+    public int GetHealth(){return health;}
 }

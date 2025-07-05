@@ -25,7 +25,7 @@ public class CameraShaker : MonoBehaviour{
         } 
     }  
     private void Update(){
-        timeElapsed += Time.fixedDeltaTime;
+        timeElapsed += Time.deltaTime;
         currentAmplitude = amplitude * Mathf.Exp(-decreaseRate * timeElapsed);
         transform.position = Vector3.SmoothDamp(transform.position,
             new Vector3(

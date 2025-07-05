@@ -1323,6 +1323,7 @@ GameObject:
   - component: {fileID: 7676359058704512040}
   - component: {fileID: 7712009281598092146}
   - component: {fileID: 3694658775441976480}
+  - component: {fileID: 2731124525213886505}
   m_Layer: 6
   m_Name: Gracz_01
   m_TagString: Players
@@ -1562,6 +1563,19 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2731124525213886505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5352078625313743853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e2b98390a1d53c46b20322c1bf26188, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
 --- !u!1 &5416430750400828718
 GameObject:
   m_ObjectHideFlags: 0
@@ -1810,6 +1824,7 @@ GameObject:
   - component: {fileID: 486115841997217802}
   - component: {fileID: 3180080782911024057}
   - component: {fileID: 8109572225016626579}
+  - component: {fileID: 236580953908723518}
   m_Layer: 6
   m_Name: Gracz_00
   m_TagString: Players
@@ -2049,3 +2064,16 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &236580953908723518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8234255525096117845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e2b98390a1d53c46b20322c1bf26188, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 1

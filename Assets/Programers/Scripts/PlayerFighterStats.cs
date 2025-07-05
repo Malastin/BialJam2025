@@ -1,11 +1,11 @@
 using UnityEngine;
 
-public class PlayerFighterStats : MonoBehaviour
+public class PlayerFighterStats : MonoBehaviour, IHealth
 {
-    //wszystkie zmienne narazie publiczne potem bêdziemy kombinowaæ by zmniejszyæ iloœæ syfu
+    //wszystkie zmienne narazie publiczne potem bï¿½dziemy kombinowaï¿½ by zmniejszyï¿½ iloï¿½ï¿½ syfu
     //animacje chodzenie skalowac z movespeedem a niamacjie ataku z attack speedem
 
-    public int health;
+    private int health;
     public int healthMax;
     public float baseMovementSpeed;
     public float movementSpeed;
@@ -14,7 +14,7 @@ public class PlayerFighterStats : MonoBehaviour
 
     private void Awake()
     {
-        //wczytanie stat gracza na pocz¹tek by mia³ te staty
+        //wczytanie stat gracza na poczï¿½tek by miaï¿½ te staty
         LoadAllBaseStats();
     }
 
@@ -31,31 +31,32 @@ public class PlayerFighterStats : MonoBehaviour
 
     public void SetPlayerMovespeedToBase()
     {
-        //ta funkcja bedzie potrzebna jak bedziemy chcieli przywrucici graczowi normaln¹ prêdkoœæ po debufie
+        //ta funkcja bedzie potrzebna jak bedziemy chcieli przywrucici graczowi normalnï¿½ prï¿½dkoï¿½ï¿½ po debufie
         movementSpeed = baseMovementSpeed;
     }
 
     public void SetPlayerAttackSpeedToBase()
     {
-        //ta funkcja bedzie potrzebna jak bedziemy chcieli przywrucici graczowi normaln¹ prêdkoœæ po debufie
+        //ta funkcja bedzie potrzebna jak bedziemy chcieli przywrucici graczowi normalnï¿½ prï¿½dkoï¿½ï¿½ po debufie
         attackSpeed = baseAttackSpeed;
-    }
-
-    public void DealDamageToPlayer(int damageAmount)
-    {
-        //funkcja która bêdzie do zadawania obra¿eñ gracz¹
-        health -= damageAmount;
-        Debug.Log("I go dmg " + damageAmount + " | Hp: " + health + "/" + healthMax);
-
-        if (health <= 0)
-        {
-            PlayerDeath();
-        }
     }
 
     private void PlayerDeath()
     {
-        //tutaj damy wywo³anie funkcji do jakiegos cora aby zatrzyamæ walkê i daæ ekran podsumowuj¹cy gre
-        //coœ w stylu ¿e walka trwa³a x czasu, mag u¿y³ x czarów i mo¿liwoœc zaczêcia kolejnej walki
+        //tutaj damy wywoï¿½anie funkcji do jakiegos cora aby zatrzyamï¿½ walkï¿½ i daï¿½ ekran podsumowujï¿½cy gre
+        //coï¿½ w stylu ï¿½e walka trwaï¿½a x czasu, mag uï¿½yï¿½ x czarï¿½w i moï¿½liwoï¿½c zaczï¿½cia kolejnej walki
     }
+
+    public void Damage(int damage) {
+        health -= damage;
+        Debug.Log("I go dmg " + damage + " | Hp: " + health + "/" + healthMax);
+
+        if (health <= 0){
+            PlayerDeath();
+        }
+    }
+    public void Heal(int heal){
+        health = Mathf.Clamp(health + heal, 0, healthMax);
+    }
+    public void Resurrect(){}
 }

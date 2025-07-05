@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: DamageIndicaitor
-  m_Shader: {fileID: -6465566751694194690, guid: 993f85e63fa08aa4ba4b919c39eee001, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: f8e1ce05c892fba43a74a260e81c5a11, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -72,10 +72,18 @@ Material:
     - _QueueOffset: 0
     - _SplashStrength: 0
     - _ZWrite: 0
+    - _alfaLevel: 1
+    - _behindShow: 1
+    - _const: 0.1
+    - _smooth: 0.5
+    - _windInt: 1.46
+    - _windShow: 0
+    - _windSpeed: 0.5
+    - _windYInt: 0.2
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
-    - _SplashColor: {r: 0, g: 0, b: 0, a: 0}
+    - _SplashColor: {r: 1, g: 1, b: 1, a: 1}
     - _TexColor: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

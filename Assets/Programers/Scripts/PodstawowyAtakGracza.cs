@@ -19,6 +19,20 @@ public class PodstawowyAtakGracza : MonoBehaviour
         if (collision.GetComponent<PlayerFighterStats>() && collision.gameObject != caster)
         {
             collision.GetComponent<PlayerFighterStats>().DealDamageToPlayer(damage);
+            if (transform.position.x < collision.transform.position.x)
+            {
+                if (!collision.GetComponent<PlayerController>().grabedToWall)
+                {
+                    collision.GetComponent<Rigidbody2D>().linearVelocityX += 15;
+                }
+            }
+            else
+            {
+                if (!collision.GetComponent<PlayerController>().grabedToWall)
+                {
+                    collision.GetComponent<Rigidbody2D>().linearVelocityX -= 15;
+                }
+            }
             Destroy(gameObject);
         }
     }

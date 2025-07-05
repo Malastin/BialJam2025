@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     private bool fallAttack;
     private bool ground;
     private bool closeToWall;
-    private bool grabedToWall;
+    public bool grabedToWall;
     public bool wallXisBigger;
     private bool tryGrabing;
 
@@ -58,6 +58,14 @@ public class PlayerController : MonoBehaviour
             else
             {
                 rb2D.linearVelocity += new Vector2(inputMovement.x, 0) * speed * playerFighterStats.movementSpeed * 0.02f;
+                if (inputMovement.x > 0 && !inOtherAnimation)
+                {
+                    spriteRenderer.flipX = false;
+                }
+                if (inputMovement.x < 0 && !inOtherAnimation)
+                {
+                    spriteRenderer.flipX = true;
+                }
             }
         }
         if (inputMovement.x > 0 && wallXisBigger)
@@ -173,14 +181,7 @@ public class PlayerController : MonoBehaviour
     public void Movement(InputAction.CallbackContext input)
     {
         inputMovement = input.ReadValue<Vector2>();
-        if (inputMovement.x > 0 && !inOtherAnimation)
-        {
-            spriteRenderer.flipX = false;
-        }
-        if (inputMovement.x < 0 && !inOtherAnimation)
-        {
-            spriteRenderer.flipX = true;
-        }
+        
         if (inputMovement.x != 0)
         {
             animationState = PlayerStates.run;
@@ -201,7 +202,7 @@ public class PlayerController : MonoBehaviour
 
     public void CastBasicAttack(InputAction.CallbackContext callback)
     {
-        if (callback.phase == InputActionPhase.Started && !blockNextAttack)
+        if (callback.phase == InputActionPhase.Started && !blockNextAttack && !grabedToWall)
         {
             var obj = Instantiate(basicAttac, transform.parent);
             obj.transform.position = transform.position;
@@ -227,7 +228,7 @@ public class PlayerController : MonoBehaviour
 
     public void CastFallingAttack(InputAction.CallbackContext callback)
     {
-        if (callback.phase == InputActionPhase.Started && tempObj == null && !blockNextAttack && !ground)
+        if (callback.phase == InputActionPhase.Started && tempObj == null && !blockNextAttack && !ground && !grabedToWall)
         {
             var obj = Instantiate(basicAttac, transform);
             obj.transform.position = transform.position;

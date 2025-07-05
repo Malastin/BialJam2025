@@ -177,7 +177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   decrease_rate: 0.1
-  noiseScale: 1.8
+  noiseScale: 1.9
   noise_strength: 1.1
   smooth: 0.1
 --- !u!1001 &3704511358110167993

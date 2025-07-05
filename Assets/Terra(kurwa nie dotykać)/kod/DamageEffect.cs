@@ -6,12 +6,9 @@ public class DamageEffect : MonoBehaviour{
     private void Awake(){
         material = GetComponent<SpriteRenderer>().sharedMaterial;
     }
-
-    public void TriggerDamageSplash()
-    {
+    public void TriggerDamageSplash(){
         StartCoroutine(DamageSplash());
     }
-
     private IEnumerator DamageSplash(){
         float currentFlashAmount = 0;
         float elapseTime = 0;

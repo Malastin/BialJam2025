@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
     public bool grabedToWall;
     public bool wallXisBigger;
     private bool tryGrabing;
+    private bool isDeath;
 
     private void Start()
     {
@@ -38,6 +39,10 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (isDeath)
+        {
+            return;
+        }
         if (inputMovement.x != 0 && !ground)
         {
             animationState = PlayerStates.fall;
@@ -100,7 +105,7 @@ public class PlayerController : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext callback)
     {
-        if (grabedToWall && callback.phase == InputActionPhase.Started)
+        if (grabedToWall && callback.phase == InputActionPhase.Started && !isDeath)
         {
             rb2D.linearVelocityY += jumpPower;
             if (spriteRenderer.flipX)
@@ -118,7 +123,7 @@ public class PlayerController : MonoBehaviour
             return;
 
         }
-        if (jumpsAmount > 0 && callback.phase == InputActionPhase.Started)
+        if (jumpsAmount > 0 && callback.phase == InputActionPhase.Started && !isDeath)
         {
             rb2D.linearVelocityY += jumpPower;
             jumpsAmount--;
@@ -127,7 +132,7 @@ public class PlayerController : MonoBehaviour
 
     public void Dash(InputAction.CallbackContext callback)
     {
-        if (canDash && callback.phase == InputActionPhase.Started)
+        if (canDash && callback.phase == InputActionPhase.Started && !isDeath)
         {
             StartCoroutine(DashCorutine());
             canDash = false;
@@ -182,6 +187,10 @@ public class PlayerController : MonoBehaviour
 
     public void Movement(InputAction.CallbackContext input)
     {
+        if (isDeath)
+        {
+            return;
+        }
         inputMovement = input.ReadValue<Vector2>();
         
         if (inputMovement.x != 0)
@@ -204,7 +213,7 @@ public class PlayerController : MonoBehaviour
 
     public void CastBasicAttack(InputAction.CallbackContext callback)
     {
-        if (callback.phase == InputActionPhase.Started && !blockNextAttack && !grabedToWall)
+        if (callback.phase == InputActionPhase.Started && !blockNextAttack && !grabedToWall && !isDeath)
         {
             var obj = Instantiate(basicAttac, transform.parent);
             obj.transform.position = transform.position;
@@ -230,7 +239,7 @@ public class PlayerController : MonoBehaviour
 
     public void CastFallingAttack(InputAction.CallbackContext callback)
     {
-        if (callback.phase == InputActionPhase.Started && tempObj == null && !blockNextAttack && !ground && !grabedToWall)
+        if (callback.phase == InputActionPhase.Started && tempObj == null && !blockNextAttack && !ground && !grabedToWall && !isDeath)
         {
             var obj = Instantiate(basicAttac, transform);
             obj.transform.position = transform.position;
@@ -356,6 +365,9 @@ public class PlayerController : MonoBehaviour
                 capsuleCollider2D.offset = new Vector2(0, -0.23f);
                 animator.Play("AssSwordLanding");
                 break;
+            case PlayerStates.death:
+                animator.Play("DeathStart");
+                break;
         }
     }
 
@@ -380,6 +392,18 @@ public class PlayerController : MonoBehaviour
                 yield break;
             }
             yield return new WaitForFixedUpdate();
+        }
+    }
+
+    public void DeatchAnimationTrigger()
+    {
+        if (animationState != PlayerStates.death)
+        {
+            animationState = PlayerStates.death;
+            inOtherAnimation = true;
+            blockMovement = true;
+            isDeath = true;
+            UpdateAnimationOfPlayer();
         }
     }
 }

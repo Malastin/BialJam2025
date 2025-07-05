@@ -24,8 +24,6 @@ public class ArenaGameCore : MonoBehaviour
     }
 }
 
-
-
 public enum PlayerStates
 {
     idle,

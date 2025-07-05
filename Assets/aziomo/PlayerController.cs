@@ -138,7 +138,7 @@ public class PlayerController : MonoBehaviour
 
     public void Dash(InputAction.CallbackContext callback)
     {
-        if (canDash && callback.phase == InputActionPhase.Started && !isDeath && !grabedToWall)
+        if (canDash && callback.phase == InputActionPhase.Started && !isDeath && !grabedToWall && inputMovement.x != 0 )
         {
             StartCoroutine(DashCorutine());
             canDash = false;

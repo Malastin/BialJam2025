@@ -1,7 +1,12 @@
 using UnityEngine;
 
-public class TimeSpeedField : MonoBehaviour
+public class TimeSpeedField : AreaOfEffectSpell
 {
+    public override void CastSpell()
+    {
+        return;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.GetComponent<PlayerFighterStats>())

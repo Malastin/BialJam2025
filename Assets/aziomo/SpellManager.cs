@@ -170,24 +170,10 @@ public class SpellManager : MonoBehaviour
     {
         if (selectedSpell is AreaOfEffectSpell)
         {
-            var line = spellAreaMarker.GetComponent<LineRenderer>();
-            spellArea.AddComponent<ExplosionField>();
+            spellArea.AddComponent(selectedSpell.GetType());
             ResetSpellAreaOpacity();
-            Vector3[] points = new Vector3[2];
-            line.GetPositions(points);
-            spellArea.transform.position = (points[0] + points[1]) / 2;
-            spellArea.transform.position = new Vector3(
-                spellAreaMarker.transform.position.x,
-                spellArea.transform.position.y,
-                spellArea.transform.position.z
-            );
-            spellArea.transform.localScale = new Vector3(
-                Vector3.Distance(points[0], points[1]),
-                spellArea.transform.localScale.y,
-                spellArea.transform.localScale.z
-            );
+            SetSpellAreaWidth();
             FadeOutSpellArea();
-            line.SetPositions(new Vector3[] { Vector3.zero, Vector3.zero });
         }
 
         if (selectedSpell is TargetedSpell)
@@ -195,7 +181,25 @@ public class SpellManager : MonoBehaviour
             (selectedSpell as TargetedSpell).target = spellTargetMarker.GetComponent<TargetMarkerController>().target.gameObject;
             selectedSpell.CastSpell();
         }
+    }
 
+    void SetSpellAreaWidth()
+    {
+        var line = spellAreaMarker.GetComponent<LineRenderer>();
+        Vector3[] points = new Vector3[2];
+        line.GetPositions(points);
+        spellArea.transform.position = (points[0] + points[1]) / 2;
+        spellArea.transform.position = new Vector3(
+            spellAreaMarker.transform.position.x,
+            spellArea.transform.position.y,
+            spellArea.transform.position.z
+        );
+        spellArea.transform.localScale = new Vector3(
+            Vector3.Distance(points[0], points[1]),
+            spellArea.transform.localScale.y,
+            spellArea.transform.localScale.z
+        );
+        line.SetPositions(new Vector3[] { Vector3.zero, Vector3.zero });
     }
 
 

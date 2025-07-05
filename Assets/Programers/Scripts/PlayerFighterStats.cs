@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerFighterStats : MonoBehaviour, IHealth
@@ -12,6 +13,7 @@ public class PlayerFighterStats : MonoBehaviour, IHealth
     public float baseAttackSpeed;
     public float attackSpeed;
     private PlayerController playerController;
+    private bool isAlredyDeath = false;
 
     private void Start()
     {
@@ -49,12 +51,18 @@ public class PlayerFighterStats : MonoBehaviour, IHealth
 
     private void PlayerDeath()
     {
+        isAlredyDeath = true;
         //tutaj damy wywo�anie funkcji do jakiegos cora aby zatrzyam� walk� i da� ekran podsumowuj�cy gre
         //co� w stylu �e walka trwa�a x czasu, mag u�y� x czar�w i mo�liwo�c zacz�cia kolejnej walki
         playerController.DeatchAnimationTrigger();
+        StartCoroutine(LoadNextGame());
     }
 
     public void Damage(int damage) {
+        if (isAlredyDeath)
+        {
+            return;
+        }
         health -= damage;
         Debug.Log("I go dmg " + damage + " | Hp: " + health + "/" + healthMax);
         playerController.damageEffect.TriggerDamageSplash();
@@ -66,4 +74,14 @@ public class PlayerFighterStats : MonoBehaviour, IHealth
         health = Mathf.Clamp(health + heal, 0, healthMax);
     }
     public void Resurrect(){}
+
+    private IEnumerator LoadNextGame()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(3f);
+            GameManager.NextMap();
+            yield break;
+        }
+    }
 }

@@ -15,6 +15,12 @@ public class GameManager : MonoBehaviour{
     public static GameObject GetPlayerReference(byte id){
         return instance.playerReferences[id];
     }
+
+    public void GetPlayers()
+    {
+        playerReferences = GameObject.FindGameObjectsWithTag("Players");
+    }
+
     public static void PlayerDied(byte id){
         instance.score[id]++;
         instance.scoreVisualisation[id].text = $"{instance.score[id]}";
@@ -22,8 +28,9 @@ public class GameManager : MonoBehaviour{
     }
     public static void NextMap(){
         SceneManager.LoadScene(instance.levelNames[Random.Range(0, instance.levelNames.Length)]);
+        instance.GetPlayers();
         ResurrectPlayers();
-        MovePlayersToSpawnpoints();
+        //MovePlayersToSpawnpoints();
     }
     private static void ResurrectPlayers(){
         foreach (var player in instance.playerReferences){

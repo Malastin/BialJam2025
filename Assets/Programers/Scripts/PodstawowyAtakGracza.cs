@@ -31,7 +31,7 @@ public class PodstawowyAtakGracza : MonoBehaviour
         {
             lastTarget.Damage(damage);
         }
-        if (transform.position.x < lastTargetObj.transform.position.x)
+        if (caster.transform.position.x < lastTargetObj.transform.position.x)
         {
             if (!lastTargetObj.GetComponent<PlayerController>().grabedToWall)
             {

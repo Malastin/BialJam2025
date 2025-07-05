@@ -255,7 +255,7 @@ public class PlayerController : MonoBehaviour
         {
             var obj = Instantiate(basicAttac, transform);
             obj.transform.position = transform.position;
-            obj.transform.localPosition += new Vector3(0, -0.2f, 0);
+            obj.transform.localPosition += new Vector3(0, -0.4f, 0);
             obj.transform.localEulerAngles += new Vector3(0, 0, 90);
             obj.GetComponent<PodstawowyAtakGracza>().caster = gameObject;
             obj.GetComponent<PodstawowyAtakGracza>().damage = 4;

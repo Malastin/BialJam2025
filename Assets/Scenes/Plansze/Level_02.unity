@@ -476,7 +476,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.1, y: 3}
+  m_Size: {x: 0.1, y: 2.5}
   m_EdgeRadius: 0
 --- !u!1 &394910533
 GameObject:
@@ -2562,7 +2562,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.1, y: 1}
+  m_Size: {x: 0.1, y: 0.5}
   m_EdgeRadius: 0
 --- !u!1 &536860308
 GameObject:
@@ -2640,7 +2640,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.1, y: 2}
+  m_Size: {x: 0.1, y: 1.5}
   m_EdgeRadius: 0
 --- !u!1 &542995200
 GameObject:
@@ -2874,7 +2874,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.1, y: 2}
+  m_Size: {x: 0.1, y: 1.5}
   m_EdgeRadius: 0
 --- !u!1 &724021745
 GameObject:
@@ -2952,7 +2952,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.1, y: 2}
+  m_Size: {x: 0.1, y: 1.5}
   m_EdgeRadius: 0
 --- !u!1 &758600551
 GameObject:
@@ -6505,7 +6505,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.1, y: 2}
+  m_Size: {x: 0.1, y: 1.5}
   m_EdgeRadius: 0
 --- !u!1001 &956479828
 PrefabInstance:
@@ -7082,7 +7082,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.1, y: 2}
+  m_Size: {x: 0.1, y: 1.5}
   m_EdgeRadius: 0
 --- !u!1 &1180012164
 GameObject:
@@ -7160,7 +7160,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.1, y: 2}
+  m_Size: {x: 0.1, y: 1.5}
   m_EdgeRadius: 0
 --- !u!1 &1224692477
 GameObject:
@@ -7770,7 +7770,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.1, y: 1}
+  m_Size: {x: 0.1, y: 0.5}
   m_EdgeRadius: 0
 --- !u!1 &1552379847
 GameObject:
@@ -7926,7 +7926,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.1, y: 1}
+  m_Size: {x: 0.1, y: 0.5}
   m_EdgeRadius: 0
 --- !u!1 &1822065288
 GameObject:
@@ -8046,7 +8046,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.1, y: 2}
+  m_Size: {x: 0.1, y: 1.5}
   m_EdgeRadius: 0
 --- !u!1001 &1850705357
 PrefabInstance:
@@ -8338,7 +8338,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.1, y: 1}
+  m_Size: {x: 0.1, y: 0.5}
   m_EdgeRadius: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

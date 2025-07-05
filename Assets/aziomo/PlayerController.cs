@@ -31,6 +31,8 @@ public class PlayerController : MonoBehaviour
     private bool tryGrabing;
     private bool isDeath;
 
+    public float timeDoNextDash;
+
     private void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
@@ -90,7 +92,7 @@ public class PlayerController : MonoBehaviour
             tryGrabing = false;
         }
 
-        if (closeToWall && Mathf.Abs(rb2D.linearVelocityY) < 2.8f && !ground && tryGrabing)
+        if (closeToWall && Mathf.Abs(rb2D.linearVelocityY) < 5f && !ground && tryGrabing)
         {
             if (!grabedToWall)
             {
@@ -152,6 +154,7 @@ public class PlayerController : MonoBehaviour
     {
         int time = 5;
         int stage = 0;
+        timeDoNextDash = 2.1f;
         while (true)
         {
             switch (stage)
@@ -182,12 +185,15 @@ public class PlayerController : MonoBehaviour
                     break;
                 case 5:
                     canDash = true;
+                    Debug.Log(timeDoNextDash);
                     yield break;
             }
 
             if (time > 0)
             {
                 time--;
+                timeDoNextDash -= 0.02f;
+                Debug.Log(timeDoNextDash);
             }
             else
             {

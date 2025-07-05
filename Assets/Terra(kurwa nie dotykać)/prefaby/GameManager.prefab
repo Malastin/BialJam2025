@@ -51,6 +51,10 @@ MonoBehaviour:
   - Level_02
   - Level_03
   - Level_04
+  - Level_05
+  - Level_06
+  - Level_07
+  - Level_08
   playerReferences:
   - {fileID: 0}
   - {fileID: 0}

@@ -5,8 +5,6 @@ public class PodstawowyAtakGracza : MonoBehaviour
     public GameObject caster;
     public bool killOnTime;
     public int damage;
-    public bool doNotDealDmg;
-    public IHealth lastTarget;
     public GameObject lastTargetObj;
 
     private void Start()
@@ -17,42 +15,44 @@ public class PodstawowyAtakGracza : MonoBehaviour
         }
     }
 
-    private void OnDestroy()
-    {
-        if (lastTarget == null)
-        {
-            return;
-        }
-        if (lastTargetObj.GetComponent<PlayerController>().animationState == PlayerStates.death)
-        {
-            return;
-        }
+    private void OnDestroy(){
+        if (lastTargetObj == null) return;
         CameraShaker.StartCameraShake(2, 0.1f);
-        if (lastTargetObj.GetComponent<PlayerController>().animationState != PlayerStates.normalAttack)
-        {
-            lastTarget.Damage(damage);
+        
+        if (lastTargetObj.TryGetComponent(out Box box)) {
+            lastTargetObj.GetComponent<IHealth>().Damage(damage);
         }
-        if (caster.transform.position.x < lastTargetObj.transform.position.x)
-        {
-            if (!lastTargetObj.GetComponent<PlayerController>().grabedToWall)
-            {
-                lastTargetObj.GetComponent<Rigidbody2D>().linearVelocityX += 15;
+        
+        if (lastTargetObj.TryGetComponent(out PlayerController player)){
+            if (lastTargetObj.GetComponent<PlayerController>().animationState == PlayerStates.death){
+                return;
             }
-        }
-        else
-        {
-            if (!lastTargetObj.GetComponent<PlayerController>().grabedToWall)
+            if (lastTargetObj.GetComponent<PlayerController>().animationState != PlayerStates.normalAttack)
             {
-                lastTargetObj.GetComponent<Rigidbody2D>().linearVelocityX -= 15;
+                lastTargetObj.GetComponent<IHealth>().Damage(damage);
+            }
+            if (caster.transform.position.x < lastTargetObj.transform.position.x)
+            {
+                if (!lastTargetObj.GetComponent<PlayerController>().grabedToWall)
+                {
+                    lastTargetObj.GetComponent<Rigidbody2D>().linearVelocityX += 15;
+                }
+            }
+            else
+            {
+                if (!lastTargetObj.GetComponent<PlayerController>().grabedToWall)
+                {
+                    lastTargetObj.GetComponent<Rigidbody2D>().linearVelocityX -= 15;
+                }
             }
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<PlayerFighterStats>() && collision.gameObject != caster)
+        Debug.Log(collision.name);
+        if (collision.TryGetComponent(out IHealth health) && collision.gameObject != caster)
         {
-            lastTarget = collision.GetComponent<IHealth>();
             lastTargetObj = collision.gameObject;
         }
     }

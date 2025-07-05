@@ -237,30 +237,21 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 1
-      inSlope: -0.33480954
-      outSlope: -0.33480954
+      inSlope: -5
+      outSlope: -5
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.5721128
-      value: 0.8084512
-      inSlope: -0.89768106
-      outSlope: -0.89768106
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.12178238
-    - serializedVersion: 3
-      time: 0.97991943
-      value: 0.045520782
-      inSlope: -1.8708141
-      outSlope: -1.8708141
+      time: 0.2
+      value: 0
+      inSlope: -5
+      outSlope: -5
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0
+      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -594,30 +585,21 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 1
-      inSlope: -0.33480954
-      outSlope: -0.33480954
+      inSlope: -5
+      outSlope: -5
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.5721128
-      value: 0.8084512
-      inSlope: -0.89768106
-      outSlope: -0.89768106
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.12178238
-    - serializedVersion: 3
-      time: 0.97991943
-      value: 0.045520782
-      inSlope: -1.8708141
-      outSlope: -1.8708141
+      time: 0.2
+      value: 0
+      inSlope: -5
+      outSlope: -5
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0
+      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -916,10 +898,6 @@ MonoBehaviour:
     m_ActionName: 'Player/Next[/Keyboard/2]'
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 641cd816-40e6-41b4-8c3d-04687c349290
-    m_ActionName: 'Player/Sprint[/Keyboard/leftShift]'
-  - m_PersistentCalls:
-      m_Calls: []
     m_ActionId: c95b2375-e6d9-4b88-9c4c-c5e76515df4b
     m_ActionName: 'UI/Navigate[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]'
   - m_PersistentCalls:
@@ -1022,6 +1000,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 651f049c-b2b9-4d71-98ac-e4bf0d695989
     m_ActionName: Player/SpellSelect4
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6ad206fa-f03f-4f20-9b6b-6f16739c4a04
+    m_ActionName: Player/SpellPrevious
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player

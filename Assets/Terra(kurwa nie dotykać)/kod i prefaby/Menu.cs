@@ -2,8 +2,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour{
-    public void StartGame(string sceneName){
-        SceneManager.LoadScene(sceneName);
+    public void StartGame(){
+        GameManager.NextMap();
     }
     public void Exit(){
         Debug.Log("Nie pamiętam jaka klasa obsługiwała wychodzenie z gry");

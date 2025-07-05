@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour{
     [SerializeField] private string[] levelNames;
     [SerializeField] private GameObject[] playerReferences = new GameObject[2];
     [SerializeField] private TMP_Text[] scoreVisualisation; 
-    private static GameManager instance;
+    public static GameManager instance;
     private int[] score = new int[2];
     private void Awake(){
         instance = this;
@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour{
         instance.scoreVisualisation[id].text = $"{instance.score[id]}";
         NextMap();
     }
-    private static void NextMap(){
+    public static void NextMap(){
         SceneManager.LoadScene(instance.levelNames[Random.Range(0, instance.levelNames.Length)]);
         ResurrectPlayers();
         MovePlayersToSpawnpoints();

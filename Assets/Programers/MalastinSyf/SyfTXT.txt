@@ -1,11 +1,5 @@
 Temat: Ty jesteś potworem
 Typ: Bijatyka dwóch graczy na arenie gdzie trzeci gracz jest czarodziejem
-Co jest do zaprogramowania
-
-Ograniczenie czasowe walki graczy
-
-To do jutro:
-	Pomysleć co robić XD
 
 
 Po 30 sekundach wybrany gracz przez czarodzieja zamienia się w potwora

@@ -21,7 +21,7 @@ public class ExplosionField : AreaOfEffectSpell
         {
             float posX = collision.transform.position.x - transform.position.x;
 
-            if (posX > 0)
+            if (posX >= 0)
             {
                 collision.GetComponent<Rigidbody2D>().linearVelocity += new Vector2(explosionPower, 0);
             }

@@ -1,8 +1,11 @@
 using UnityEngine;
 
-public class SlowField : MonoBehaviour
+public class SlowField : AreaOfEffectSpell
 {
-     
+    public override void CastSpell()
+    {
+        return;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

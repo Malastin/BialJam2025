@@ -16,6 +16,13 @@ public class PlayerController : MonoBehaviour
     private bool canDash = true;
     private bool blockMovement = false;
     private GameObject tempObj;
+    private PlayerStates animationState;
+    [SerializeField] private Animator animator;
+    private bool inOtherAnimation;
+    private int blockTicks;
+    private bool blockNextAttack;
+    private bool fallAttack;
+    private bool ground;
 
     private void Start()
     {
@@ -25,12 +32,27 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (inputMovement.x != 0 && !ground)
+        {
+            animationState = PlayerStates.fall;
+            if (!inOtherAnimation)
+            {
+                UpdateAnimationOfPlayer();
+            }
+        }
+        if (!ground)
+        {
+            rb2D.gravityScale += 0.3f;
+        }
         if (blockMovement)
         {
-            inputMovement = Vector2.zero;
+            rb2D.linearVelocity += new Vector2(0, 0) * speed * playerFighterStats.movementSpeed * 0.02f;
             rb2D.linearVelocityY -= 3f;
         }
-        rb2D.linearVelocity += new Vector2(inputMovement.x, 0) * speed * playerFighterStats.movementSpeed * 0.02f;
+        else
+        {
+            rb2D.linearVelocity += new Vector2(inputMovement.x, 0) * speed * playerFighterStats.movementSpeed * 0.02f;
+        }
     }
 
     public void Jump(InputAction.CallbackContext callback)
@@ -48,6 +70,9 @@ public class PlayerController : MonoBehaviour
         {
             StartCoroutine(DashCorutine());
             canDash = false;
+            inOtherAnimation = true;
+            animationState = PlayerStates.dash;
+            UpdateAnimationOfPlayer();
         }
     }
 
@@ -65,6 +90,16 @@ public class PlayerController : MonoBehaviour
                     break;
                 case 1:
                     time = 100;
+                    inOtherAnimation = false;
+                    if (inputMovement.x != 0)
+                    {
+                        animationState = PlayerStates.run;
+                    }
+                    else
+                    {
+                        animationState = PlayerStates.idle;
+                    }
+                    UpdateAnimationOfPlayer();
                     stage++;
                     break;
                 case 3:
@@ -95,11 +130,27 @@ public class PlayerController : MonoBehaviour
         {
             spriteRenderer.flipX = true;
         }
+        if (inputMovement.x != 0)
+        {
+            animationState = PlayerStates.run;
+        }
+        if (!inOtherAnimation)
+        {
+            UpdateAnimationOfPlayer();
+        }
+        if (input.phase == InputActionPhase.Canceled)
+        {
+            animationState = PlayerStates.idle;
+            if (!inOtherAnimation)
+            {
+                UpdateAnimationOfPlayer();
+            }
+        }
     }
 
     public void CastBasicAttack(InputAction.CallbackContext callback)
     {
-        if (callback.phase == InputActionPhase.Started)
+        if (callback.phase == InputActionPhase.Started && !blockNextAttack)
         {
             var obj = Instantiate(basicAttac, transform.parent);
             obj.transform.position = transform.position;
@@ -114,12 +165,18 @@ public class PlayerController : MonoBehaviour
             obj.GetComponent<PodstawowyAtakGracza>().caster = gameObject;
             obj.GetComponent<PodstawowyAtakGracza>().damage = 2;
             obj.GetComponent<PodstawowyAtakGracza>().killOnTime = true;
+            blockNextAttack = true;
+            inOtherAnimation = true;
+            blockTicks = 25;
+            animationState = PlayerStates.normalAttack;
+            UpdateAnimationOfPlayer();
+            StartCoroutine(BlockAttack());
         }
     }
 
     public void CastFallingAttack(InputAction.CallbackContext callback)
     {
-        if (callback.phase == InputActionPhase.Started && tempObj == null)
+        if (callback.phase == InputActionPhase.Started && tempObj == null && !blockNextAttack && !ground)
         {
             var obj = Instantiate(basicAttac, transform);
             obj.transform.position = transform.position;
@@ -129,6 +186,11 @@ public class PlayerController : MonoBehaviour
             obj.GetComponent<PodstawowyAtakGracza>().killOnTime = false;
             tempObj = obj;
             blockMovement = true;
+            fallAttack = true;
+            blockNextAttack = true;
+            inOtherAnimation = true;
+            animationState = PlayerStates.skyAttack;
+            UpdateAnimationOfPlayer();
         }
     }
 
@@ -136,12 +198,104 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            jumpsAmount = 2;
+            jumpsAmount = 1;
             blockMovement = false;
+            ground = true;
+            rb2D.gravityScale = 4f;
             if (tempObj != null)
             {
                 Destroy(tempObj);
             }
+            if (fallAttack)
+            {
+                fallAttack = false;
+                blockNextAttack = false;
+                inOtherAnimation = false;
+                UpdateAnimationOfPlayer();
+            }
+            if (!inOtherAnimation)
+            {
+                if (inputMovement.x != 0)
+                {
+                    animationState = PlayerStates.run;
+                    UpdateAnimationOfPlayer();
+                }
+            }
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        ground = true;
+        if (fallAttack)
+        {
+            fallAttack = false;
+            blockNextAttack = false;
+            inOtherAnimation = false;
+            UpdateAnimationOfPlayer();
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            ground = false;
+        }
+    }
+
+    private void UpdateAnimationOfPlayer()
+    {
+        switch (animationState)
+        {
+            case PlayerStates.idle:
+                animator.speed = 1f;
+                animator.Play("Idle");
+                break;
+            case PlayerStates.run:
+                animator.speed = playerFighterStats.movementSpeed;
+                animator.Play("Walk");
+                break;
+            case PlayerStates.normalAttack:
+                animator.speed = playerFighterStats.attackSpeed;
+                animator.Play("Attack");
+                break;
+            case PlayerStates.skyAttack:
+                animator.speed = 1f;
+                animator.Play("AssSword");
+                break;
+            case PlayerStates.fall:
+                animator.speed = 1f;
+                animator.Play("InAir");
+                break;
+            case PlayerStates.dash:
+                animator.speed = 1f;
+                animator.Play("Dash");
+                break;
+        }
+    }
+
+    private IEnumerator BlockAttack()
+    {
+        while (true)
+        {
+            blockTicks--;
+            if (blockTicks <= 0)
+            {
+                blockNextAttack = false;
+                inOtherAnimation = false;
+                if (inputMovement.x != 0)
+                {
+                    animationState = PlayerStates.run;
+                }
+                else
+                {
+                    animationState = PlayerStates.idle;
+                }
+                UpdateAnimationOfPlayer();
+                yield break;
+            }
+            yield return new WaitForFixedUpdate();
         }
     }
 }

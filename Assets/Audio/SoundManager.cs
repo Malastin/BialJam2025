@@ -1,0 +1,48 @@
+using UnityEngine;
+using UnityEngine.Audio;
+
+
+[RequireComponent(typeof(AudioSource))]
+public class SoundManager : MonoBehaviour
+{
+    [SerializeField] private AudioClip[] soundList;
+
+    private static SoundManager instance = null;
+    private AudioSource audioSource;
+
+    private void Awake()
+    {
+        if (!instance)
+        {
+            instance = this;
+            audioSource = GetComponent<AudioSource>();
+        }
+    }
+
+    public static void StopSound()
+    {
+        instance.audioSource.Stop();
+    }
+
+    public static void PlaySound(SoundType sound, AudioSource source = null, float volume = 1)
+    {
+        AudioClip clip = instance.soundList[(int)sound];
+        if (source)
+        {
+            source.clip = clip;
+            source.Play();
+        }
+        else
+        {
+            instance.audioSource.PlayOneShot(clip, volume);
+        }
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            audioSource.Stop();
+        }
+    }
+}

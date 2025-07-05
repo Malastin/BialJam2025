@@ -167,7 +167,7 @@ public class PlayerController : MonoBehaviour
                 case 3:
                     time = 80;
                     inOtherAnimation = false;
-                    if (!grabedToWall)
+                    if (!grabedToWall && !isDeath)
                     {
                         if (inputMovement.x != 0)
                         {
@@ -393,15 +393,18 @@ public class PlayerController : MonoBehaviour
             {
                 blockNextAttack = false;
                 inOtherAnimation = false;
-                if (inputMovement.x != 0)
+                if (!grabedToWall && !isDeath)
                 {
-                    animationState = PlayerStates.run;
+                    if (inputMovement.x != 0)
+                    {
+                        animationState = PlayerStates.run;
+                    }
+                    else
+                    {
+                        animationState = PlayerStates.idle;
+                    }
+                    UpdateAnimationOfPlayer();
                 }
-                else
-                {
-                    animationState = PlayerStates.idle;
-                }
-                UpdateAnimationOfPlayer();
                 yield break;
             }
             yield return new WaitForFixedUpdate();

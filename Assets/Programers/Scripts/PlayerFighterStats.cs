@@ -57,7 +57,7 @@ public class PlayerFighterStats : MonoBehaviour, IHealth
     public void Damage(int damage) {
         health -= damage;
         Debug.Log("I go dmg " + damage + " | Hp: " + health + "/" + healthMax);
-
+        playerController.damageEffect.TriggerDamageSplash();
         if (health <= 0){
             PlayerDeath();
         }

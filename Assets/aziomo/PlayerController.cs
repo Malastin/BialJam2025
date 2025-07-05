@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb2D;
     private SpriteRenderer spriteRenderer;
     private CapsuleCollider2D capsuleCollider2D;
+    public DamageEffect damageEffect;
 
     public float speed = 1.0f;
     public float jumpPower;
@@ -35,6 +36,7 @@ public class PlayerController : MonoBehaviour
         rb2D = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         capsuleCollider2D = GetComponent<CapsuleCollider2D>();
+        damageEffect = GetComponent<DamageEffect>();
     }
 
     private void FixedUpdate()

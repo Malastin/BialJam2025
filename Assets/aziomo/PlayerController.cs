@@ -119,6 +119,7 @@ public class PlayerController : MonoBehaviour
             grabedToWall = false;
             inOtherAnimation = false;
             blockMovement = false;
+            animationState = PlayerStates.idle;
             UpdateAnimationOfPlayer();
             return;
 
@@ -127,6 +128,8 @@ public class PlayerController : MonoBehaviour
         {
             rb2D.linearVelocityY += jumpPower;
             jumpsAmount--;
+            animationState = PlayerStates.idle;
+            UpdateAnimationOfPlayer();
         }
     }
 

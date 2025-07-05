@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour{
     private static void NextMap(){
         SceneManager.LoadScene(instance.levelNames[Random.Range(0, instance.levelNames.Length)]);
         ResurrectPlayers();
-        MovePlayersToSpawnpoints();  
+        MovePlayersToSpawnpoints();
     }
     private static void ResurrectPlayers(){
         foreach (var player in instance.playerReferences){

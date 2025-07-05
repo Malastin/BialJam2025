@@ -10,7 +10,7 @@ public class HealhBar : MonoBehaviour{
         localScale = transform.localScale;
     }
     void Update(){
-        localScale.x = Mathf.Clamp(player.GetComponent<IHealth>().GetHealth() / 40, 0, 2);
+        localScale.x = Mathf.Clamp(player.GetComponent<IHealth>().GetHealth() / 40 / hp_divide, 0, 100);
         transform.localScale = localScale;
     }
 }

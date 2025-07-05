@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     private bool canDash = true;
     private bool blockMovement = false;
     private GameObject tempObj;
-    private PlayerStates animationState;
+    public PlayerStates animationState;
     [SerializeField] private Animator animator;
     private bool inOtherAnimation;
     private int blockTicks;
@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour
         if (inputMovement.x != 0 && !ground)
         {
             animationState = PlayerStates.fall;
-            if (!inOtherAnimation)
+            if (!inOtherAnimation && !grabedToWall)
             {
                 UpdateAnimationOfPlayer();
             }
@@ -132,7 +132,7 @@ public class PlayerController : MonoBehaviour
 
     public void Dash(InputAction.CallbackContext callback)
     {
-        if (canDash && callback.phase == InputActionPhase.Started && !isDeath)
+        if (canDash && callback.phase == InputActionPhase.Started && !isDeath && !grabedToWall)
         {
             StartCoroutine(DashCorutine());
             canDash = false;
@@ -155,20 +155,27 @@ public class PlayerController : MonoBehaviour
                     rb2D.linearVelocity += new Vector2(inputMovement.x, 0) * speed * playerFighterStats.movementSpeed * 0.12f;
                     break;
                 case 1:
-                    time = 100;
-                    inOtherAnimation = false;
-                    if (inputMovement.x != 0)
-                    {
-                        animationState = PlayerStates.run;
-                    }
-                    else
-                    {
-                        animationState = PlayerStates.idle;
-                    }
-                    UpdateAnimationOfPlayer();
+                    time = 20;
                     stage++;
                     break;
                 case 3:
+                    time = 80;
+                    inOtherAnimation = false;
+                    if (!grabedToWall)
+                    {
+                        if (inputMovement.x != 0)
+                        {
+                            animationState = PlayerStates.run;
+                        }
+                        else
+                        {
+                            animationState = PlayerStates.idle;
+                        }
+                        UpdateAnimationOfPlayer();
+                    }
+                    stage++;
+                    break;
+                case 5:
                     canDash = true;
                     yield break;
             }
@@ -193,18 +200,18 @@ public class PlayerController : MonoBehaviour
         }
         inputMovement = input.ReadValue<Vector2>();
         
-        if (inputMovement.x != 0)
+        if (inputMovement.x != 0 && !grabedToWall)
         {
             animationState = PlayerStates.run;
         }
-        if (!inOtherAnimation)
+        if (!inOtherAnimation && !grabedToWall)
         {
             UpdateAnimationOfPlayer();
         }
         if (input.phase == InputActionPhase.Canceled)
         {
             animationState = PlayerStates.idle;
-            if (!inOtherAnimation)
+            if (!inOtherAnimation && !grabedToWall)
             {
                 UpdateAnimationOfPlayer();
             }
@@ -353,9 +360,9 @@ public class PlayerController : MonoBehaviour
                 animator.Play("InAir");
                 break;
             case PlayerStates.dash:
-                animator.speed = 1f;
+                animator.speed = 4f;
                 capsuleCollider2D.offset = new Vector2(0, -0.05f);
-                animator.Play("Dash");
+                animator.Play("DashStart");
                 break;
             case PlayerStates.grabedToWall:
                 capsuleCollider2D.offset = new Vector2(0, -0.05f);

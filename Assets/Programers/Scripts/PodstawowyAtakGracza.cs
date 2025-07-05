@@ -5,6 +5,9 @@ public class PodstawowyAtakGracza : MonoBehaviour
     public GameObject caster;
     public bool killOnTime;
     public int damage;
+    public bool doNotDealDmg;
+    public IHealth lastTarget;
+    public GameObject lastTargetObj;
 
     private void Start()
     {
@@ -14,26 +17,42 @@ public class PodstawowyAtakGracza : MonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+        if (lastTarget == null)
+        {
+            return;
+        }
+        if (lastTargetObj.GetComponent<PlayerController>().animationState == PlayerStates.death)
+        {
+            return;
+        }
+        if (lastTargetObj.GetComponent<PlayerController>().animationState != PlayerStates.normalAttack)
+        {
+            lastTarget.Damage(damage);
+        }
+        if (transform.position.x < lastTargetObj.transform.position.x)
+        {
+            if (!lastTargetObj.GetComponent<PlayerController>().grabedToWall)
+            {
+                lastTargetObj.GetComponent<Rigidbody2D>().linearVelocityX += 15;
+            }
+        }
+        else
+        {
+            if (!lastTargetObj.GetComponent<PlayerController>().grabedToWall)
+            {
+                lastTargetObj.GetComponent<Rigidbody2D>().linearVelocityX -= 15;
+            }
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.GetComponent<PlayerFighterStats>() && collision.gameObject != caster)
         {
-            collision.GetComponent<IHealth>().Damage(damage);
-            if (transform.position.x < collision.transform.position.x)
-            {
-                if (!collision.GetComponent<PlayerController>().grabedToWall)
-                {
-                    collision.GetComponent<Rigidbody2D>().linearVelocityX += 15;
-                }
-            }
-            else
-            {
-                if (!collision.GetComponent<PlayerController>().grabedToWall)
-                {
-                    collision.GetComponent<Rigidbody2D>().linearVelocityX -= 15;
-                }
-            }
-            Destroy(gameObject);
+            lastTarget = collision.GetComponent<IHealth>();
+            lastTargetObj = collision.gameObject;
         }
     }
 }

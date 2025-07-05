@@ -15,28 +15,34 @@ public class SpellManager : MonoBehaviour
 
     public GameObject spellTargetMarker;
     public GameObject spellAreaMarker;
-    public GameObject spellArea;
+    public GameObject spellAreaPrefab;
+    private GameObject spellInstance;
     private SpellStage spellStage = SpellStage.Idle;
-    private SpriteRenderer selectedSpellSprite;
+    private SpriteRenderer selectedSpellIcon;
 
     public Vector3 areaMarkerRestingPosition;
     public float castingSpeed = 0.001f;
 
-    private SpellBehavior selectedSpell
+    private GameObject selectedSpell
     {
-        get { return spellItems[selectedSpellIndex].GetComponent<SpellBehavior>(); }
+        get { return spellItems[selectedSpellIndex]; }
+    }
+
+    private SpellBehavior selectedSpellBehavior
+    {
+        get { return selectedSpell.GetComponent<SpellBehavior>(); }
     }
 
     void Start()
     {
         areaMarkerRestingPosition = spellAreaMarker.transform.position;
-        selectedSpellSprite = GetComponent<SpriteRenderer>();
-        selectedSpellSprite.sprite = spellItems[selectedSpellIndex].GetComponent<SpriteRenderer>().sprite;
+        selectedSpellIcon = GetComponent<SpriteRenderer>();
+        selectedSpellIcon.sprite = selectedSpellBehavior.icon;
     }
 
     void Update()
     {
-        if (selectedSpell is AreaOfEffectSpell && spellStage == SpellStage.Targeting)
+        if (selectedSpellBehavior is AreaOfEffectSpell && spellStage == SpellStage.Targeting)
         {
             if (spellAreaMarker != null)
             {
@@ -60,7 +66,7 @@ public class SpellManager : MonoBehaviour
             }
             if (spellStage == SpellStage.Targeting)
             {
-                if (selectedSpell is TargetedSpell)
+                if (selectedSpellBehavior is TargetedSpell)
                 {
                     spellTargetMarker.GetComponent<TargetMarkerController>().ChangeTarget();
                 }
@@ -78,7 +84,7 @@ public class SpellManager : MonoBehaviour
             }
             if (spellStage == SpellStage.Targeting)
             {
-                if (selectedSpell is TargetedSpell)
+                if (selectedSpellBehavior is TargetedSpell)
                 {
                     spellTargetMarker.GetComponent<TargetMarkerController>().ChangeTarget();
                 }
@@ -88,7 +94,7 @@ public class SpellManager : MonoBehaviour
 
     public void Aim(InputAction.CallbackContext input)
     {
-        if (spellStage != SpellStage.Targeting || !(selectedSpell is AreaOfEffectSpell))
+        if (spellStage != SpellStage.Targeting || !(selectedSpellBehavior is AreaOfEffectSpell))
         {
             return;
         }
@@ -121,11 +127,11 @@ public class SpellManager : MonoBehaviour
             if (spellStage == SpellStage.Idle)
             {
                 spellStage = SpellStage.Targeting;
-                if (selectedSpell is TargetedSpell)
+                if (selectedSpellBehavior is TargetedSpell)
                 {
                     spellTargetMarker.SetActive(true);
                 }
-                if (selectedSpell is AreaOfEffectSpell)
+                if (selectedSpellBehavior is AreaOfEffectSpell)
                 {
                     spellAreaMarker.SetActive(true);
                 }
@@ -134,11 +140,11 @@ public class SpellManager : MonoBehaviour
             {
                 CastSpell(input);
                 spellStage = SpellStage.Idle;
-                if (selectedSpell is TargetedSpell)
+                if (selectedSpellBehavior is TargetedSpell)
                 {
                     spellTargetMarker.SetActive(false);
                 }
-                if (selectedSpell is AreaOfEffectSpell)
+                if (selectedSpellBehavior is AreaOfEffectSpell)
                 {
                     spellAreaMarker.SetActive(true);
                 }
@@ -153,7 +159,7 @@ public class SpellManager : MonoBehaviour
         {
             selectedSpellIndex = 0;
         }
-        selectedSpellSprite.sprite = spellItems[selectedSpellIndex].GetComponent<SpriteRenderer>().sprite;
+        selectedSpellIcon.sprite = selectedSpellBehavior.icon;
     }
 
     public void SelectPreviousSpell()
@@ -163,23 +169,27 @@ public class SpellManager : MonoBehaviour
         {
             selectedSpellIndex = spellItems.Length - 1;
         }
-        selectedSpellSprite.sprite = spellItems[selectedSpellIndex].GetComponent<SpriteRenderer>().sprite;
+        selectedSpellIcon.sprite = selectedSpellBehavior.icon;
     }
 
     public void CastSpell(InputAction.CallbackContext input)
     {
-        if (selectedSpell is AreaOfEffectSpell)
+        if (selectedSpellBehavior is AreaOfEffectSpell)
         {
-            spellArea.AddComponent(selectedSpell.GetType());
+            spellInstance = Instantiate(selectedSpell, spellAreaMarker.transform.position, Quaternion.identity);
+            spellInstance.transform.SetParent(transform);
+            
             ResetSpellAreaOpacity();
             SetSpellAreaWidth();
-            FadeOutSpellArea();
+            // FadeOutSpellArea();
+            selectedSpellBehavior.CastSpell();
+            Destroy(spellInstance, (selectedSpellBehavior as AreaOfEffectSpell).decayTime);
         }
 
-        if (selectedSpell is TargetedSpell)
+        if (selectedSpellBehavior is TargetedSpell)
         {
-            (selectedSpell as TargetedSpell).target = spellTargetMarker.GetComponent<TargetMarkerController>().target.gameObject;
-            selectedSpell.CastSpell();
+            (selectedSpellBehavior as TargetedSpell).target = spellTargetMarker.GetComponent<TargetMarkerController>().target.gameObject;
+            selectedSpellBehavior.CastSpell();
         }
     }
 
@@ -188,16 +198,17 @@ public class SpellManager : MonoBehaviour
         var line = spellAreaMarker.GetComponent<LineRenderer>();
         Vector3[] points = new Vector3[2];
         line.GetPositions(points);
-        spellArea.transform.position = (points[0] + points[1]) / 2;
-        spellArea.transform.position = new Vector3(
+        spellInstance.transform.position = (points[0] + points[1]) / 2;
+        spellInstance.transform.position = new Vector3(
             spellAreaMarker.transform.position.x,
-            spellArea.transform.position.y,
-            spellArea.transform.position.z
+            spellInstance.transform.position.y,
+            spellInstance.transform.position.z
         );
-        spellArea.transform.localScale = new Vector3(
+        float worldScreenHeight = 2f * Camera.main.orthographicSize;
+        spellInstance.transform.localScale = new Vector3(
             Vector3.Distance(points[0], points[1]),
-            spellArea.transform.localScale.y,
-            spellArea.transform.localScale.z
+            worldScreenHeight,
+            spellInstance.transform.localScale.z
         );
         line.SetPositions(new Vector3[] { Vector3.zero, Vector3.zero });
     }
@@ -205,9 +216,9 @@ public class SpellManager : MonoBehaviour
 
     void FadeOutSpellArea()
     {
-        if (spellArea != null)
+        if (spellInstance != null)
         {
-            var spriteRenderer = spellArea.GetComponent<SpriteRenderer>();
+            var spriteRenderer = spellInstance.GetComponent<SpriteRenderer>();
             if (spriteRenderer != null)
             {
                 StartCoroutine(FadeToZeroAlpha(spriteRenderer));
@@ -221,9 +232,9 @@ public class SpellManager : MonoBehaviour
 
     void ResetSpellAreaOpacity()
     {
-        if (spellArea != null)
+        if (spellInstance != null)
         {
-            var spriteRenderer = spellArea.GetComponent<SpriteRenderer>();
+            var spriteRenderer = selectedSpell.GetComponent<SpriteRenderer>();
             if (spriteRenderer != null)
             {
                 spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, 0.5f);

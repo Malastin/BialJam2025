@@ -74,7 +74,7 @@ public class PlayerFighterStats : MonoBehaviour, IHealth
         health = Mathf.Clamp(health + heal, 0, healthMax);
     }
     public void Resurrect(){}
-
+    public int GetHealth(){return health;}
     private IEnumerator LoadNextGame()
     {
         while (true)

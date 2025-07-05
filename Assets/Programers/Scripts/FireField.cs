@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class FireField : MonoBehaviour
+public class FireField : AreaOfEffectSpell
 {
     [SerializeField] private BoxCollider2D boxCollider2D;
     [SerializeField] private int damage;
@@ -44,5 +44,10 @@ public class FireField : MonoBehaviour
         {
             collision.GetComponent<IHealth>().Damage(damage);
         }
+    }
+
+    public override void CastSpell()
+    {
+        return;
     }
 }

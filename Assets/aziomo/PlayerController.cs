@@ -30,9 +30,8 @@ public class PlayerController : MonoBehaviour
     public bool wallXisBigger;
     private bool tryGrabing;
     private bool isDeath;
-
-    public float timeDoNextDash;
-
+    public float cooldown = 1;
+    private float timer;
     private void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
@@ -40,7 +39,6 @@ public class PlayerController : MonoBehaviour
         capsuleCollider2D = GetComponent<CapsuleCollider2D>();
         damageEffect = GetComponent<DamageEffect>();
     }
-
     private void FixedUpdate()
     {
         if (isDeath)
@@ -83,7 +81,8 @@ public class PlayerController : MonoBehaviour
         if (inputMovement.x > 0 && wallXisBigger)
         {
             tryGrabing = true;
-        }else if (inputMovement.x < 0 && !wallXisBigger)
+        }
+        else if (inputMovement.x < 0 && !wallXisBigger)
         {
             tryGrabing = true;
         }
@@ -92,7 +91,7 @@ public class PlayerController : MonoBehaviour
             tryGrabing = false;
         }
 
-        if (closeToWall && Mathf.Abs(rb2D.linearVelocityY) < 5f && !ground && tryGrabing)
+        if (closeToWall && Mathf.Abs(rb2D.linearVelocityY) < 2.8f && !ground && tryGrabing)
         {
             if (!grabedToWall)
             {
@@ -154,7 +153,6 @@ public class PlayerController : MonoBehaviour
     {
         int time = 5;
         int stage = 0;
-        timeDoNextDash = 2.1f;
         while (true)
         {
             switch (stage)
@@ -185,15 +183,12 @@ public class PlayerController : MonoBehaviour
                     break;
                 case 5:
                     canDash = true;
-                    Debug.Log(timeDoNextDash);
                     yield break;
             }
 
             if (time > 0)
             {
                 time--;
-                timeDoNextDash -= 0.02f;
-                Debug.Log(timeDoNextDash);
             }
             else
             {

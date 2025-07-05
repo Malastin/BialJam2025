@@ -7,7 +7,7 @@ public class ExplosionField : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        collision.GetComponent<PlayerFighterStats>().DealDamageToPlayer(explosionDamage);
+        collision.GetComponent<IHealth>().Damage(explosionDamage);
         if (collision.GetComponent<Rigidbody2D>())
         {
             float posX = collision.transform.position.x - transform.position.x;

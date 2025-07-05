@@ -42,7 +42,7 @@ public class FireField : MonoBehaviour
     {
         if (collision.GetComponent<PlayerFighterStats>())
         {
-            collision.GetComponent<PlayerFighterStats>().DealDamageToPlayer(damage);
+            collision.GetComponent<IHealth>().Damage(damage);
         }
     }
 }

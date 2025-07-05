@@ -4457,6 +4457,7 @@ MonoBehaviour:
   speed: 25
   jumpPower: 20
   animator: {fileID: 956932408}
+  grabedToWall: 0
   wallXisBigger: 0
 --- !u!114 &956932404
 MonoBehaviour:
@@ -4470,7 +4471,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ecf509060b7cf247866ce4c38afd5f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
   healthMax: 0
   baseMovementSpeed: 0
   movementSpeed: 0
@@ -4968,7 +4968,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ecf509060b7cf247866ce4c38afd5f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
   healthMax: 0
   baseMovementSpeed: 0
   movementSpeed: 0
@@ -4991,6 +4990,7 @@ MonoBehaviour:
   speed: 25
   jumpPower: 20
   animator: {fileID: 1258625665}
+  grabedToWall: 0
   wallXisBigger: 0
 --- !u!50 &1258625662
 Rigidbody2D:

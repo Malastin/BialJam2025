@@ -37,4 +37,5 @@ public enum PlayerStates
     skyAttack,
     fall,
     grabedToWall,
+    endSkyAttack,
 }

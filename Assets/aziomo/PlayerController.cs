@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject basicAttac;
     private Rigidbody2D rb2D;
     private SpriteRenderer spriteRenderer;
+    private CapsuleCollider2D capsuleCollider2D;
 
     public float speed = 1.0f;
     public float jumpPower;
@@ -32,6 +33,7 @@ public class PlayerController : MonoBehaviour
     {
         rb2D = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        capsuleCollider2D = GetComponent<CapsuleCollider2D>();
     }
 
     private void FixedUpdate()
@@ -242,6 +244,7 @@ public class PlayerController : MonoBehaviour
             blockNextAttack = true;
             inOtherAnimation = true;
             animationState = PlayerStates.skyAttack;
+            capsuleCollider2D.offset = new Vector2(0, -0.23f);
             UpdateAnimationOfPlayer();
         }
     }
@@ -263,6 +266,7 @@ public class PlayerController : MonoBehaviour
                 fallAttack = false;
                 blockNextAttack = false;
                 inOtherAnimation = false;
+                animationState = PlayerStates.endSkyAttack;
                 UpdateAnimationOfPlayer();
             }
             if (!inOtherAnimation)
@@ -317,14 +321,17 @@ public class PlayerController : MonoBehaviour
         {
             case PlayerStates.idle:
                 animator.speed = 1f;
+                capsuleCollider2D.offset = new Vector2(0, -0.05f);
                 animator.Play("Idle");
                 break;
             case PlayerStates.run:
                 animator.speed = playerFighterStats.movementSpeed;
+                capsuleCollider2D.offset = new Vector2(0, -0.05f);
                 animator.Play("Walk");
                 break;
             case PlayerStates.normalAttack:
                 animator.speed = playerFighterStats.attackSpeed;
+                capsuleCollider2D.offset = new Vector2(0, -0.05f);
                 animator.Play("Attack");
                 break;
             case PlayerStates.skyAttack:
@@ -333,14 +340,21 @@ public class PlayerController : MonoBehaviour
                 break;
             case PlayerStates.fall:
                 animator.speed = 1f;
+                capsuleCollider2D.offset = new Vector2(0, -0.05f);
                 animator.Play("InAir");
                 break;
             case PlayerStates.dash:
                 animator.speed = 1f;
+                capsuleCollider2D.offset = new Vector2(0, -0.05f);
                 animator.Play("Dash");
                 break;
             case PlayerStates.grabedToWall:
+                capsuleCollider2D.offset = new Vector2(0, -0.05f);
                 animator.Play("GrabWall");
+                break;
+            case PlayerStates.endSkyAttack:
+                capsuleCollider2D.offset = new Vector2(0, -0.23f);
+                animator.Play("AssSwordLanding");
                 break;
         }
     }

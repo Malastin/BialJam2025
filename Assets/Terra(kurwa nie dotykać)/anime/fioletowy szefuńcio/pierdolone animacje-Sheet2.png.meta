@@ -1,0 +1,996 @@
+fileFormatVersion: 2
+guid: 6e7027df75f51a04985685a69f5d0e91
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2486386649829117178
+    second: pierdolone animacje-Sheet2_0
+  - first:
+      213: -8532439540314467861
+    second: pierdolone animacje-Sheet2_1
+  - first:
+      213: 2814855015482380449
+    second: pierdolone animacje-Sheet2_2
+  - first:
+      213: 3712916076980699620
+    second: pierdolone animacje-Sheet2_3
+  - first:
+      213: 744499566285033723
+    second: pierdolone animacje-Sheet2_4
+  - first:
+      213: -3324384957545862508
+    second: pierdolone animacje-Sheet2_5
+  - first:
+      213: -3421473550344781349
+    second: pierdolone animacje-Sheet2_6
+  - first:
+      213: 9041028600460184263
+    second: pierdolone animacje-Sheet2_7
+  - first:
+      213: -5018556421887938594
+    second: pierdolone animacje-Sheet2_8
+  - first:
+      213: 599164854483716519
+    second: pierdolone animacje-Sheet2_9
+  - first:
+      213: 5420019392424044253
+    second: pierdolone animacje-Sheet2_10
+  - first:
+      213: 7867558259741309914
+    second: pierdolone animacje-Sheet2_11
+  - first:
+      213: -1188369795190310865
+    second: pierdolone animacje-Sheet2_12
+  - first:
+      213: 6702726431825076229
+    second: pierdolone animacje-Sheet2_13
+  - first:
+      213: 2948014073694040664
+    second: pierdolone animacje-Sheet2_14
+  - first:
+      213: 1041683127994225522
+    second: pierdolone animacje-Sheet2_15
+  - first:
+      213: -3764289241498758198
+    second: pierdolone animacje-Sheet2_16
+  - first:
+      213: 5829680735735163212
+    second: pierdolone animacje-Sheet2_17
+  - first:
+      213: 7495184261415266491
+    second: pierdolone animacje-Sheet2_18
+  - first:
+      213: -3272016246193293126
+    second: pierdolone animacje-Sheet2_19
+  - first:
+      213: -8965846827694988836
+    second: pierdolone animacje-Sheet2_20
+  - first:
+      213: -5456633351421066502
+    second: pierdolone animacje-Sheet2_21
+  - first:
+      213: -3357202716081913042
+    second: pierdolone animacje-Sheet2_22
+  - first:
+      213: 3134255107609781330
+    second: pierdolone animacje-Sheet2_23
+  - first:
+      213: 7657046879542434750
+    second: pierdolone animacje-Sheet2_24
+  - first:
+      213: -6742758824371279151
+    second: pierdolone animacje-Sheet2_25
+  - first:
+      213: 2514336940980689980
+    second: pierdolone animacje-Sheet2_26
+  - first:
+      213: 4602424767368767024
+    second: pierdolone animacje-Sheet2_27
+  - first:
+      213: -429705883294200182
+    second: pierdolone animacje-Sheet2_28
+  - first:
+      213: 7647810473989992581
+    second: pierdolone animacje-Sheet2_29
+  - first:
+      213: -4413236270214438189
+    second: pierdolone animacje-Sheet2_30
+  - first:
+      213: 3087594853726177736
+    second: pierdolone animacje-Sheet2_31
+  - first:
+      213: -8161396766595804700
+    second: pierdolone animacje-Sheet2_32
+  - first:
+      213: 574910690188236809
+    second: pierdolone animacje-Sheet2_33
+  - first:
+      213: 6153397363452340210
+    second: pierdolone animacje-Sheet2_34
+  - first:
+      213: -2415361715855402925
+    second: pierdolone animacje-Sheet2_35
+  - first:
+      213: 8529368414468300681
+    second: pierdolone animacje-Sheet2_36
+  - first:
+      213: 4624127809540531797
+    second: pierdolone animacje-Sheet2_37
+  - first:
+      213: -6786788323184702005
+    second: pierdolone animacje-Sheet2_38
+  - first:
+      213: -5419991707770770240
+    second: pierdolone animacje-Sheet2_39
+  - first:
+      213: -7172333292395507512
+    second: pierdolone animacje-Sheet2_40
+  - first:
+      213: 8420148350202723738
+    second: pierdolone animacje-Sheet2_41
+  - first:
+      213: 5663537310375566073
+    second: pierdolone animacje-Sheet2_42
+  - first:
+      213: 4588306231194951677
+    second: pierdolone animacje-Sheet2_43
+  - first:
+      213: 4192800069376517707
+    second: pierdolone animacje-Sheet2_44
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: pierdolone animacje-Sheet2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afc865d0c7b618220800000000000000
+      internalID: 2486386649829117178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pierdolone animacje-Sheet2_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be11f04e17fa69980800000000000000
+      internalID: -8532439540314467861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pierdolone animacje-Sheet2_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e18549008de68330800000000000000
+      internalID: 3712916076980699620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pierdolone animacje-Sheet2_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf01ad7396ef45a00800000000000000
+      internalID: 744499566285033723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pierdolone animacje-Sheet2_6
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd10e470feb7480d0800000000000000
+      internalID: -3421473550344781349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pierdolone animacje-Sheet2_7
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ca83965c9f287d70800000000000000
+      internalID: 9041028600460184263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pierdolone animacje-Sheet2_8
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edf2d1416818a5ab0800000000000000
+      internalID: -5018556421887938594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pierdolone animacje-Sheet2_9
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a98669b249a05800800000000000000
+      internalID: 599164854483716519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pierdolone animacje-Sheet2_10
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd6e921cbe6c73b40800000000000000
+      internalID: 5420019392424044253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pierdolone animacje-Sheet2_11
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adb32999d8e2f2d60800000000000000
+      internalID: 7867558259741309914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pierdolone animacje-Sheet2_12
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f28b0efa7ff028fe0800000000000000
+      internalID: -1188369795190310865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pierdolone animacje-Sheet2_13
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5002e8b5d2ed40d50800000000000000
+      internalID: 6702726431825076229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pierdolone animacje-Sheet2_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 852b2674e2379e820800000000000000
+      internalID: 2948014073694040664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pierdolone animacje-Sheet2_15
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2731d9c294dc47e00800000000000000
+      internalID: 1041683127994225522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pierdolone animacje-Sheet2_16
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac354a001ee82cbc0800000000000000
+      internalID: -3764289241498758198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pierdolone animacje-Sheet2_17
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c49ae6ffdbf27e050800000000000000
+      internalID: 5829680735735163212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pierdolone animacje-Sheet2_18
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb861c3ef5e340860800000000000000
+      internalID: 7495184261415266491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pierdolone animacje-Sheet2_19
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab8775a5f867792d0800000000000000
+      internalID: -3272016246193293126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pierdolone animacje-Sheet2_20
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd16da430d9e29380800000000000000
+      internalID: -8965846827694988836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pierdolone animacje-Sheet2_21
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af28ffa90e42644b0800000000000000
+      internalID: -5456633351421066502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pierdolone animacje-Sheet2_22
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2306fcbae1d861d0800000000000000
+      internalID: -3357202716081913042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pierdolone animacje-Sheet2_23
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 254e8841a6c1f7b20800000000000000
+      internalID: 3134255107609781330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pierdolone animacje-Sheet2_24
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebbd3a3719b434a60800000000000000
+      internalID: 7657046879542434750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pierdolone animacje-Sheet2_25
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1da283be298ec62a0800000000000000
+      internalID: -6742758824371279151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pierdolone animacje-Sheet2_27
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 036a974f0f81fdf30800000000000000
+      internalID: 4602424767368767024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pierdolone animacje-Sheet2_31
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c94ca2292759da20800000000000000
+      internalID: 3087594853726177736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pierdolone animacje-Sheet2_32
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e11908b1e4ecbe80800000000000000
+      internalID: -8161396766595804700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pierdolone animacje-Sheet2_33
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9089e3a0a3e7af700800000000000000
+      internalID: 574910690188236809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pierdolone animacje-Sheet2_36
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98fd1d6e1676e5670800000000000000
+      internalID: 8529368414468300681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pierdolone animacje-Sheet2_37
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5562bab3eb33c2040800000000000000
+      internalID: 4624127809540531797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pierdolone animacje-Sheet2_38
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bcd8ece5afb70d1a0800000000000000
+      internalID: -6786788323184702005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pierdolone animacje-Sheet2_39
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0cca2c4124258c4b0800000000000000
+      internalID: -5419991707770770240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 3c684b7d0e60006459144f31ca4c7454
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      pierdolone animacje-Sheet2_0: 2486386649829117178
+      pierdolone animacje-Sheet2_1: -8532439540314467861
+      pierdolone animacje-Sheet2_10: 5420019392424044253
+      pierdolone animacje-Sheet2_11: 7867558259741309914
+      pierdolone animacje-Sheet2_12: -1188369795190310865
+      pierdolone animacje-Sheet2_13: 6702726431825076229
+      pierdolone animacje-Sheet2_14: 2948014073694040664
+      pierdolone animacje-Sheet2_15: 1041683127994225522
+      pierdolone animacje-Sheet2_16: -3764289241498758198
+      pierdolone animacje-Sheet2_17: 5829680735735163212
+      pierdolone animacje-Sheet2_18: 7495184261415266491
+      pierdolone animacje-Sheet2_19: -3272016246193293126
+      pierdolone animacje-Sheet2_2: 2814855015482380449
+      pierdolone animacje-Sheet2_20: -8965846827694988836
+      pierdolone animacje-Sheet2_21: -5456633351421066502
+      pierdolone animacje-Sheet2_22: -3357202716081913042
+      pierdolone animacje-Sheet2_23: 3134255107609781330
+      pierdolone animacje-Sheet2_24: 7657046879542434750
+      pierdolone animacje-Sheet2_25: -6742758824371279151
+      pierdolone animacje-Sheet2_26: 2514336940980689980
+      pierdolone animacje-Sheet2_27: 4602424767368767024
+      pierdolone animacje-Sheet2_28: -429705883294200182
+      pierdolone animacje-Sheet2_29: 7647810473989992581
+      pierdolone animacje-Sheet2_3: 3712916076980699620
+      pierdolone animacje-Sheet2_30: -4413236270214438189
+      pierdolone animacje-Sheet2_31: 3087594853726177736
+      pierdolone animacje-Sheet2_32: -8161396766595804700
+      pierdolone animacje-Sheet2_33: 574910690188236809
+      pierdolone animacje-Sheet2_34: 6153397363452340210
+      pierdolone animacje-Sheet2_35: -2415361715855402925
+      pierdolone animacje-Sheet2_36: 8529368414468300681
+      pierdolone animacje-Sheet2_37: 4624127809540531797
+      pierdolone animacje-Sheet2_38: -6786788323184702005
+      pierdolone animacje-Sheet2_39: -5419991707770770240
+      pierdolone animacje-Sheet2_4: 744499566285033723
+      pierdolone animacje-Sheet2_5: -3324384957545862508
+      pierdolone animacje-Sheet2_6: -3421473550344781349
+      pierdolone animacje-Sheet2_7: 9041028600460184263
+      pierdolone animacje-Sheet2_8: -5018556421887938594
+      pierdolone animacje-Sheet2_9: 599164854483716519
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

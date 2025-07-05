@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class ArenaGameCore : MonoBehaviour
 {
-    private int timer = 31;
+    public static int timer = 31;
 
     private void Start()
     {
@@ -15,6 +15,10 @@ public class ArenaGameCore : MonoBehaviour
         while (true)
         {
             timer--;
+            if (timer == 0)
+            {
+                yield break;
+            }
             yield return new WaitForSeconds(1f);
         }
     }
@@ -32,4 +36,5 @@ public enum PlayerStates
     normalAttack,
     skyAttack,
     fall,
+    grabedToWall,
 }

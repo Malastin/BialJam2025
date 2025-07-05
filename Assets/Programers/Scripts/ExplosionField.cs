@@ -1,14 +1,23 @@
 using UnityEngine;
 
-public class ExplosionField : MonoBehaviour
+public class ExplosionField : AreaOfEffectSpell
 {
     public float explosionPower;
     public int explosionDamage;
 
+    public override void CastSpell()
+    {
+        return;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        collision.GetComponent<IHealth>().Damage(explosionDamage);
-        if (collision.GetComponent<Rigidbody2D>())
+        if(collision.TryGetComponent(out IHealth health))
+        {
+            health.Damage(explosionDamage);
+        }
+        // collision.GetComponent<IHealth>().Damage(explosionDamage);
+        if (collision.GetComponent<Rigidbody2D>() != null)
         {
             float posX = collision.transform.position.x - transform.position.x;
             float posY = collision.transform.position.y - transform.position.y;

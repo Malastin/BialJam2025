@@ -110,15 +110,6 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Look"",
-                    ""type"": ""Value"",
-                    ""id"": ""6b444451-8a00-4d00-a97e-f47457f736a8"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
                     ""name"": ""P1AttackLight"",
                     ""type"": ""Button"",
                     ""id"": ""6c2ab1b8-8984-453a-af3d-a3c78ae1679a"",
@@ -209,7 +200,7 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Next"",
+                    ""name"": ""SpellNext"",
                     ""type"": ""Button"",
                     ""id"": ""b7230bb6-fc9b-4f52-8b25-f5e19cb2c2ba"",
                     ""expectedControlType"": """",
@@ -218,9 +209,9 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Sprint"",
+                    ""name"": ""SpellPrevious"",
                     ""type"": ""Button"",
-                    ""id"": ""641cd816-40e6-41b4-8c3d-04687c349290"",
+                    ""id"": ""6ad206fa-f03f-4f20-9b6b-6f16739c4a04"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -261,6 +252,15 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SpellAim"",
+                    ""type"": ""Value"",
+                    ""id"": ""6b444451-8a00-4d00-a97e-f47457f736a8"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -381,7 +381,7 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Gamepad"",
-                    ""action"": ""Look"",
+                    ""action"": ""SpellAim"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -392,7 +392,7 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Joystick"",
-                    ""action"": ""Look"",
+                    ""action"": ""SpellAim"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -442,56 +442,23 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""cbac6039-9c09-46a1-b5f2-4e5124ccb5ed"",
-                    ""path"": ""<Keyboard>/2"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Next"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""e15ca19d-e649-4852-97d5-7fe8ccc44e94"",
                     ""path"": ""<Gamepad>/dpad/right"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""Next"",
+                    ""action"": ""SpellNext"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""f2e9ba44-c423-42a7-ad56-f20975884794"",
-                    ""path"": ""<Keyboard>/leftShift"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Sprint"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""8cbb2f4b-a784-49cc-8d5e-c010b8c7f4e6"",
-                    ""path"": ""<Gamepad>/leftStickPress"",
+                    ""id"": ""d593a7ff-fdf7-476e-9a1b-d9caa0a9c4e5"",
+                    ""path"": ""<Gamepad>/dpad/left"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""Sprint"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""d8bf24bf-3f2f-4160-a97c-38ec1eb520ba"",
-                    ""path"": ""<XRController>/trigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""XR"",
-                    ""action"": ""Sprint"",
+                    ""action"": ""SpellPrevious"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -502,28 +469,6 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""P1Jump"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""daba33a1-ad0c-4742-a909-43ad1cdfbeb6"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""P1Jump"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""603f3daf-40bd-4854-8724-93e8017f59e3"",
-                    ""path"": ""<XRController>/secondaryButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""XR"",
                     ""action"": ""P1Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -541,44 +486,11 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""67d1f02d-e9dd-4a36-8836-542aeb5613a8"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""P2Jump"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""38f5b45e-6395-4136-9991-0e64f2f21565"",
-                    ""path"": ""<XRController>/secondaryButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""XR"",
-                    ""action"": ""P2Jump"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""1534dc16-a6aa-499d-9c3a-22b47347b52a"",
                     ""path"": ""<Keyboard>/leftShift"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""P1Dash"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""25060bbd-a3a6-476e-8fba-45ae484aad05"",
-                    ""path"": ""<Gamepad>/dpad/left"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
                     ""action"": ""P1Dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -596,45 +508,12 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""1ca241e8-2dd7-4a0b-aca5-a678a64aea14"",
-                    ""path"": ""<Gamepad>/dpad/left"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""P2Dash"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""1c04ea5f-b012-41d1-a6f7-02e963b52893"",
                     ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Interact"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""b3f66d0b-7751-423f-908b-a11c5bd95930"",
-                    ""path"": ""<Gamepad>/buttonNorth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Interact"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""4f4649ac-64a8-4a73-af11-b3faef356a4d"",
-                    ""path"": ""<Gamepad>/buttonEast"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Crouch"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1279,7 +1158,6 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_P1Move = m_Player.FindAction("P1Move", throwIfNotFound: true);
         m_Player_P2Move = m_Player.FindAction("P2Move", throwIfNotFound: true);
-        m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_P1AttackLight = m_Player.FindAction("P1AttackLight", throwIfNotFound: true);
         m_Player_P1AttackSky = m_Player.FindAction("P1AttackSky", throwIfNotFound: true);
         m_Player_P2AttackLight = m_Player.FindAction("P2AttackLight", throwIfNotFound: true);
@@ -1290,12 +1168,13 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         m_Player_P2Jump = m_Player.FindAction("P2Jump", throwIfNotFound: true);
         m_Player_P1Dash = m_Player.FindAction("P1Dash", throwIfNotFound: true);
         m_Player_P2Dash = m_Player.FindAction("P2Dash", throwIfNotFound: true);
-        m_Player_Next = m_Player.FindAction("Next", throwIfNotFound: true);
-        m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
+        m_Player_SpellNext = m_Player.FindAction("SpellNext", throwIfNotFound: true);
+        m_Player_SpellPrevious = m_Player.FindAction("SpellPrevious", throwIfNotFound: true);
         m_Player_SpellCast = m_Player.FindAction("SpellCast", throwIfNotFound: true);
         m_Player_SpellSelect2 = m_Player.FindAction("SpellSelect2", throwIfNotFound: true);
         m_Player_SpellSelect3 = m_Player.FindAction("SpellSelect3", throwIfNotFound: true);
         m_Player_SpellSelect4 = m_Player.FindAction("SpellSelect4", throwIfNotFound: true);
+        m_Player_SpellAim = m_Player.FindAction("SpellAim", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1391,7 +1270,6 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_P1Move;
     private readonly InputAction m_Player_P2Move;
-    private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_P1AttackLight;
     private readonly InputAction m_Player_P1AttackSky;
     private readonly InputAction m_Player_P2AttackLight;
@@ -1402,12 +1280,13 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_P2Jump;
     private readonly InputAction m_Player_P1Dash;
     private readonly InputAction m_Player_P2Dash;
-    private readonly InputAction m_Player_Next;
-    private readonly InputAction m_Player_Sprint;
+    private readonly InputAction m_Player_SpellNext;
+    private readonly InputAction m_Player_SpellPrevious;
     private readonly InputAction m_Player_SpellCast;
     private readonly InputAction m_Player_SpellSelect2;
     private readonly InputAction m_Player_SpellSelect3;
     private readonly InputAction m_Player_SpellSelect4;
+    private readonly InputAction m_Player_SpellAim;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -1427,10 +1306,6 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/P2Move".
         /// </summary>
         public InputAction @P2Move => m_Wrapper.m_Player_P2Move;
-        /// <summary>
-        /// Provides access to the underlying input action "Player/Look".
-        /// </summary>
-        public InputAction @Look => m_Wrapper.m_Player_Look;
         /// <summary>
         /// Provides access to the underlying input action "Player/P1AttackLight".
         /// </summary>
@@ -1472,13 +1347,13 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @P2Dash => m_Wrapper.m_Player_P2Dash;
         /// <summary>
-        /// Provides access to the underlying input action "Player/Next".
+        /// Provides access to the underlying input action "Player/SpellNext".
         /// </summary>
-        public InputAction @Next => m_Wrapper.m_Player_Next;
+        public InputAction @SpellNext => m_Wrapper.m_Player_SpellNext;
         /// <summary>
-        /// Provides access to the underlying input action "Player/Sprint".
+        /// Provides access to the underlying input action "Player/SpellPrevious".
         /// </summary>
-        public InputAction @Sprint => m_Wrapper.m_Player_Sprint;
+        public InputAction @SpellPrevious => m_Wrapper.m_Player_SpellPrevious;
         /// <summary>
         /// Provides access to the underlying input action "Player/SpellCast".
         /// </summary>
@@ -1495,6 +1370,10 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/SpellSelect4".
         /// </summary>
         public InputAction @SpellSelect4 => m_Wrapper.m_Player_SpellSelect4;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/SpellAim".
+        /// </summary>
+        public InputAction @SpellAim => m_Wrapper.m_Player_SpellAim;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1527,9 +1406,6 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
             @P2Move.started += instance.OnP2Move;
             @P2Move.performed += instance.OnP2Move;
             @P2Move.canceled += instance.OnP2Move;
-            @Look.started += instance.OnLook;
-            @Look.performed += instance.OnLook;
-            @Look.canceled += instance.OnLook;
             @P1AttackLight.started += instance.OnP1AttackLight;
             @P1AttackLight.performed += instance.OnP1AttackLight;
             @P1AttackLight.canceled += instance.OnP1AttackLight;
@@ -1560,12 +1436,12 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
             @P2Dash.started += instance.OnP2Dash;
             @P2Dash.performed += instance.OnP2Dash;
             @P2Dash.canceled += instance.OnP2Dash;
-            @Next.started += instance.OnNext;
-            @Next.performed += instance.OnNext;
-            @Next.canceled += instance.OnNext;
-            @Sprint.started += instance.OnSprint;
-            @Sprint.performed += instance.OnSprint;
-            @Sprint.canceled += instance.OnSprint;
+            @SpellNext.started += instance.OnSpellNext;
+            @SpellNext.performed += instance.OnSpellNext;
+            @SpellNext.canceled += instance.OnSpellNext;
+            @SpellPrevious.started += instance.OnSpellPrevious;
+            @SpellPrevious.performed += instance.OnSpellPrevious;
+            @SpellPrevious.canceled += instance.OnSpellPrevious;
             @SpellCast.started += instance.OnSpellCast;
             @SpellCast.performed += instance.OnSpellCast;
             @SpellCast.canceled += instance.OnSpellCast;
@@ -1578,6 +1454,9 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
             @SpellSelect4.started += instance.OnSpellSelect4;
             @SpellSelect4.performed += instance.OnSpellSelect4;
             @SpellSelect4.canceled += instance.OnSpellSelect4;
+            @SpellAim.started += instance.OnSpellAim;
+            @SpellAim.performed += instance.OnSpellAim;
+            @SpellAim.canceled += instance.OnSpellAim;
         }
 
         /// <summary>
@@ -1595,9 +1474,6 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
             @P2Move.started -= instance.OnP2Move;
             @P2Move.performed -= instance.OnP2Move;
             @P2Move.canceled -= instance.OnP2Move;
-            @Look.started -= instance.OnLook;
-            @Look.performed -= instance.OnLook;
-            @Look.canceled -= instance.OnLook;
             @P1AttackLight.started -= instance.OnP1AttackLight;
             @P1AttackLight.performed -= instance.OnP1AttackLight;
             @P1AttackLight.canceled -= instance.OnP1AttackLight;
@@ -1628,12 +1504,12 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
             @P2Dash.started -= instance.OnP2Dash;
             @P2Dash.performed -= instance.OnP2Dash;
             @P2Dash.canceled -= instance.OnP2Dash;
-            @Next.started -= instance.OnNext;
-            @Next.performed -= instance.OnNext;
-            @Next.canceled -= instance.OnNext;
-            @Sprint.started -= instance.OnSprint;
-            @Sprint.performed -= instance.OnSprint;
-            @Sprint.canceled -= instance.OnSprint;
+            @SpellNext.started -= instance.OnSpellNext;
+            @SpellNext.performed -= instance.OnSpellNext;
+            @SpellNext.canceled -= instance.OnSpellNext;
+            @SpellPrevious.started -= instance.OnSpellPrevious;
+            @SpellPrevious.performed -= instance.OnSpellPrevious;
+            @SpellPrevious.canceled -= instance.OnSpellPrevious;
             @SpellCast.started -= instance.OnSpellCast;
             @SpellCast.performed -= instance.OnSpellCast;
             @SpellCast.canceled -= instance.OnSpellCast;
@@ -1646,6 +1522,9 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
             @SpellSelect4.started -= instance.OnSpellSelect4;
             @SpellSelect4.performed -= instance.OnSpellSelect4;
             @SpellSelect4.canceled -= instance.OnSpellSelect4;
+            @SpellAim.started -= instance.OnSpellAim;
+            @SpellAim.performed -= instance.OnSpellAim;
+            @SpellAim.canceled -= instance.OnSpellAim;
         }
 
         /// <summary>
@@ -1961,13 +1840,6 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnP2Move(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "Look" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnLook(InputAction.CallbackContext context);
-        /// <summary>
         /// Method invoked when associated input action "P1AttackLight" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
@@ -2038,19 +1910,19 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnP2Dash(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "Next" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "SpellNext" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnNext(InputAction.CallbackContext context);
+        void OnSpellNext(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "Sprint" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "SpellPrevious" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnSprint(InputAction.CallbackContext context);
+        void OnSpellPrevious(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "SpellCast" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
@@ -2079,6 +1951,13 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnSpellSelect4(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "SpellAim" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSpellAim(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.

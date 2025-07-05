@@ -9,7 +9,7 @@ public class FireField : MonoBehaviour
     private void Start()
     {
         StartCoroutine(FireTick());
-        //Destroy(gameObject, 5f);
+        Destroy(gameObject, 5f);
     }
 
     private IEnumerator FireTick()

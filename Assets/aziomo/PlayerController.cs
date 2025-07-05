@@ -43,6 +43,7 @@ public class PlayerController : MonoBehaviour
     {
         if (isDeath)
         {
+            rb2D.gravityScale = 4f;
             return;
         }
         if (inputMovement.x != 0 && !ground)
@@ -415,6 +416,7 @@ public class PlayerController : MonoBehaviour
             inOtherAnimation = true;
             blockMovement = true;
             isDeath = true;
+            grabedToWall = false;
             UpdateAnimationOfPlayer();
         }
     }

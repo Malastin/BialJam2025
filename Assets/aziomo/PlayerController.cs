@@ -30,8 +30,7 @@ public class PlayerController : MonoBehaviour
     public bool wallXisBigger;
     private bool tryGrabing;
     private bool isDeath;
-    public float cooldown = 1;
-    private float timer;
+    public float dashCooldown;
     private void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
@@ -153,6 +152,7 @@ public class PlayerController : MonoBehaviour
     {
         int time = 5;
         int stage = 0;
+        dashCooldown = 2.1f;
         while (true)
         {
             switch (stage)
@@ -189,6 +189,7 @@ public class PlayerController : MonoBehaviour
             if (time > 0)
             {
                 time--;
+                dashCooldown -= 0.02f;
             }
             else
             {

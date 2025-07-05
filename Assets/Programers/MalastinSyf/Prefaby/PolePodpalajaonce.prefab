@@ -147,5 +147,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93c83333b53c308478388d9299872bf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spellName: 
+  icon: {fileID: 8334651344603559088, guid: 3d3c60555b6ee0f44a4cf40a5b127062, type: 3}
+  spellDamage: 0
+  cooldown: 0
+  growthRate: 0
+  decayTime: 0
   boxCollider2D: {fileID: 6511290256954911317}
   damage: 1

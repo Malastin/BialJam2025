@@ -30,7 +30,7 @@ public class ExplosionField : AreaOfEffectSpell
                 collision.GetComponent<Rigidbody2D>().linearVelocity += new Vector2(-explosionPower, 0);
             }
 
-            //Destroy(gameObject);
+            Destroy(gameObject);
         }
     }
 }

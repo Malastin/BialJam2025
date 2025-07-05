@@ -11,6 +11,12 @@ public class PlayerFighterStats : MonoBehaviour, IHealth
     public float movementSpeed;
     public float baseAttackSpeed;
     public float attackSpeed;
+    private PlayerController playerController;
+
+    private void Start()
+    {
+        playerController = GetComponent<PlayerController>();
+    }
 
     private void Awake()
     {
@@ -45,6 +51,7 @@ public class PlayerFighterStats : MonoBehaviour, IHealth
     {
         //tutaj damy wywo�anie funkcji do jakiegos cora aby zatrzyam� walk� i da� ekran podsumowuj�cy gre
         //co� w stylu �e walka trwa�a x czasu, mag u�y� x czar�w i mo�liwo�c zacz�cia kolejnej walki
+        playerController.DeatchAnimationTrigger();
     }
 
     public void Damage(int damage) {

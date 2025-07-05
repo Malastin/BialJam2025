@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     private bool canDash = true;
     private bool blockMovement = false;
     private GameObject tempObj;
-    private PlayerStates animationState;
+    public PlayerStates animationState;
     [SerializeField] private Animator animator;
     private bool inOtherAnimation;
     private int blockTicks;
@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
     public bool grabedToWall;
     public bool wallXisBigger;
     private bool tryGrabing;
+    private bool isDeath;
 
     private void Start()
     {
@@ -38,10 +39,14 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (isDeath)
+        {
+            return;
+        }
         if (inputMovement.x != 0 && !ground)
         {
             animationState = PlayerStates.fall;
-            if (!inOtherAnimation)
+            if (!inOtherAnimation && !grabedToWall)
             {
                 UpdateAnimationOfPlayer();
             }
@@ -100,7 +105,7 @@ public class PlayerController : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext callback)
     {
-        if (grabedToWall && callback.phase == InputActionPhase.Started)
+        if (grabedToWall && callback.phase == InputActionPhase.Started && !isDeath)
         {
             rb2D.linearVelocityY += jumpPower;
             if (spriteRenderer.flipX)
@@ -114,20 +119,23 @@ public class PlayerController : MonoBehaviour
             grabedToWall = false;
             inOtherAnimation = false;
             blockMovement = false;
+            animationState = PlayerStates.idle;
             UpdateAnimationOfPlayer();
             return;
 
         }
-        if (jumpsAmount > 0 && callback.phase == InputActionPhase.Started)
+        if (jumpsAmount > 0 && callback.phase == InputActionPhase.Started && !isDeath)
         {
             rb2D.linearVelocityY += jumpPower;
             jumpsAmount--;
+            animationState = PlayerStates.idle;
+            UpdateAnimationOfPlayer();
         }
     }
 
     public void Dash(InputAction.CallbackContext callback)
     {
-        if (canDash && callback.phase == InputActionPhase.Started)
+        if (canDash && callback.phase == InputActionPhase.Started && !isDeath && !grabedToWall)
         {
             StartCoroutine(DashCorutine());
             canDash = false;
@@ -150,20 +158,27 @@ public class PlayerController : MonoBehaviour
                     rb2D.linearVelocity += new Vector2(inputMovement.x, 0) * speed * playerFighterStats.movementSpeed * 0.12f;
                     break;
                 case 1:
-                    time = 100;
-                    inOtherAnimation = false;
-                    if (inputMovement.x != 0)
-                    {
-                        animationState = PlayerStates.run;
-                    }
-                    else
-                    {
-                        animationState = PlayerStates.idle;
-                    }
-                    UpdateAnimationOfPlayer();
+                    time = 20;
                     stage++;
                     break;
                 case 3:
+                    time = 80;
+                    inOtherAnimation = false;
+                    if (!grabedToWall)
+                    {
+                        if (inputMovement.x != 0)
+                        {
+                            animationState = PlayerStates.run;
+                        }
+                        else
+                        {
+                            animationState = PlayerStates.idle;
+                        }
+                        UpdateAnimationOfPlayer();
+                    }
+                    stage++;
+                    break;
+                case 5:
                     canDash = true;
                     yield break;
             }
@@ -182,20 +197,24 @@ public class PlayerController : MonoBehaviour
 
     public void Movement(InputAction.CallbackContext input)
     {
+        if (isDeath)
+        {
+            return;
+        }
         inputMovement = input.ReadValue<Vector2>();
         
-        if (inputMovement.x != 0)
+        if (inputMovement.x != 0 && !grabedToWall)
         {
             animationState = PlayerStates.run;
         }
-        if (!inOtherAnimation)
+        if (!inOtherAnimation && !grabedToWall)
         {
             UpdateAnimationOfPlayer();
         }
         if (input.phase == InputActionPhase.Canceled)
         {
             animationState = PlayerStates.idle;
-            if (!inOtherAnimation)
+            if (!inOtherAnimation && !grabedToWall)
             {
                 UpdateAnimationOfPlayer();
             }
@@ -204,7 +223,7 @@ public class PlayerController : MonoBehaviour
 
     public void CastBasicAttack(InputAction.CallbackContext callback)
     {
-        if (callback.phase == InputActionPhase.Started && !blockNextAttack && !grabedToWall)
+        if (callback.phase == InputActionPhase.Started && !blockNextAttack && !grabedToWall && !isDeath)
         {
             var obj = Instantiate(basicAttac, transform.parent);
             obj.transform.position = transform.position;
@@ -230,7 +249,7 @@ public class PlayerController : MonoBehaviour
 
     public void CastFallingAttack(InputAction.CallbackContext callback)
     {
-        if (callback.phase == InputActionPhase.Started && tempObj == null && !blockNextAttack && !ground && !grabedToWall)
+        if (callback.phase == InputActionPhase.Started && tempObj == null && !blockNextAttack && !ground && !grabedToWall && !isDeath)
         {
             var obj = Instantiate(basicAttac, transform);
             obj.transform.position = transform.position;
@@ -344,9 +363,9 @@ public class PlayerController : MonoBehaviour
                 animator.Play("InAir");
                 break;
             case PlayerStates.dash:
-                animator.speed = 1f;
+                animator.speed = 4f;
                 capsuleCollider2D.offset = new Vector2(0, -0.05f);
-                animator.Play("Dash");
+                animator.Play("DashStart");
                 break;
             case PlayerStates.grabedToWall:
                 capsuleCollider2D.offset = new Vector2(0, -0.05f);
@@ -355,6 +374,9 @@ public class PlayerController : MonoBehaviour
             case PlayerStates.endSkyAttack:
                 capsuleCollider2D.offset = new Vector2(0, -0.23f);
                 animator.Play("AssSwordLanding");
+                break;
+            case PlayerStates.death:
+                animator.Play("DeathStart");
                 break;
         }
     }
@@ -380,6 +402,18 @@ public class PlayerController : MonoBehaviour
                 yield break;
             }
             yield return new WaitForFixedUpdate();
+        }
+    }
+
+    public void DeatchAnimationTrigger()
+    {
+        if (animationState != PlayerStates.death)
+        {
+            animationState = PlayerStates.death;
+            inOtherAnimation = true;
+            blockMovement = true;
+            isDeath = true;
+            UpdateAnimationOfPlayer();
         }
     }
 }

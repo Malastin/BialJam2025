@@ -30,7 +30,8 @@ public class PlayerController : MonoBehaviour
     public bool wallXisBigger;
     private bool tryGrabing;
     private bool isDeath;
-
+    public float cooldown = 1;
+    private float timer;
     private void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
@@ -38,7 +39,6 @@ public class PlayerController : MonoBehaviour
         capsuleCollider2D = GetComponent<CapsuleCollider2D>();
         damageEffect = GetComponent<DamageEffect>();
     }
-
     private void FixedUpdate()
     {
         if (isDeath)
@@ -81,7 +81,8 @@ public class PlayerController : MonoBehaviour
         if (inputMovement.x > 0 && wallXisBigger)
         {
             tryGrabing = true;
-        }else if (inputMovement.x < 0 && !wallXisBigger)
+        }
+        else if (inputMovement.x < 0 && !wallXisBigger)
         {
             tryGrabing = true;
         }

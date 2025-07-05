@@ -623,8 +623,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1853098685
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -4378850606633018947, guid: 6b3f8747579abc1478e418c87dd6d871, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -826,8 +826,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1853098685
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -6577571225688439491, guid: 6b3f8747579abc1478e418c87dd6d871, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -852,7 +852,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d31a20e1ff0a8214c9aa19b6405a8755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 8234255525096117845}
+  player: {fileID: 5352078625313743853}
   divde_hook: 2
 --- !u!1 &3596901092103267949
 GameObject:
@@ -1956,8 +1956,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1853098685
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -3517969631367723843, guid: 6b3f8747579abc1478e418c87dd6d871, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2058,8 +2058,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1853098685
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -6577571225688439491, guid: 6b3f8747579abc1478e418c87dd6d871, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2084,7 +2084,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d31a20e1ff0a8214c9aa19b6405a8755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 5352078625313743853}
+  player: {fileID: 8234255525096117845}
   divde_hook: 2
 --- !u!1 &8234255525096117845
 GameObject:

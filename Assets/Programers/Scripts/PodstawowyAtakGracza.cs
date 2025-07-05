@@ -27,6 +27,7 @@ public class PodstawowyAtakGracza : MonoBehaviour
         {
             return;
         }
+        CameraShaker.StartCameraShake(20, 0.1f);
         if (lastTargetObj.GetComponent<PlayerController>().animationState != PlayerStates.normalAttack)
         {
             lastTarget.Damage(damage);

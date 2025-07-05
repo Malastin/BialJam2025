@@ -10,7 +10,7 @@ public class Cooldown : MonoBehaviour{
         localScale = transform.localScale;
     }
     void Update(){
-        //localScale.x = Mathf.Clamp(player.GetComponent<PlayerController>().GetCooldown() / divde_hook, 0, float.MaxValue);
-        //transform.localScale = localScale;
+        localScale.x = Mathf.Clamp(player.GetComponent<PlayerController>().dashCooldown / divde_hook, 0, float.MaxValue);
+        transform.localScale = localScale;
     }
 }

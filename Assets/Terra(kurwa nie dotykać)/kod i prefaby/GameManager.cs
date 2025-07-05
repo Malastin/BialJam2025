@@ -16,8 +16,7 @@ public class GameManager : MonoBehaviour{
         return instance.playerReferences[id];
     }
 
-    public void GetPlayers()
-    {
+    public void GetPlayers(){
         playerReferences = GameObject.FindGameObjectsWithTag("Players");
     }
 
@@ -30,16 +29,10 @@ public class GameManager : MonoBehaviour{
         SceneManager.LoadScene(instance.levelNames[Random.Range(0, instance.levelNames.Length)]);
         instance.GetPlayers();
         ResurrectPlayers();
-        //MovePlayersToSpawnpoints();
     }
     private static void ResurrectPlayers(){
         foreach (var player in instance.playerReferences){
             player.GetComponent<IHealth>().Resurrect();
-        }
-    }
-    private static void MovePlayersToSpawnpoints(){
-        for(byte i = 0; i < instance.playerReferences.Length; i++){
-            instance.playerReferences[i].transform.position = Spawnpoints.GetSpawnpoints(i);
         }
     }
 }

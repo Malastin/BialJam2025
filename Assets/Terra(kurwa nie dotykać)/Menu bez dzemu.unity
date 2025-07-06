@@ -818,15 +818,15 @@ PrefabInstance:
     - target: {fileID: 2643157806110954863, guid: f4ee41dc928283146937257f15d1daef, type: 3}
       propertyPath: 'soundList.Array.data[8]'
       value: 
-      objectReference: {fileID: 8300000, guid: 86fb2be6d2de5824a9ee87f2138d3eed, type: 3}
+      objectReference: {fileID: 8300000, guid: d8a46bf4e20e2174e9ffe9338ff648e3, type: 3}
     - target: {fileID: 2643157806110954863, guid: f4ee41dc928283146937257f15d1daef, type: 3}
       propertyPath: 'soundList.Array.data[9]'
       value: 
-      objectReference: {fileID: 8300000, guid: d8a46bf4e20e2174e9ffe9338ff648e3, type: 3}
+      objectReference: {fileID: 8300000, guid: 00078e772fa738c469baffc6f8685592, type: 3}
     - target: {fileID: 2643157806110954863, guid: f4ee41dc928283146937257f15d1daef, type: 3}
       propertyPath: 'soundList.Array.data[10]'
       value: 
-      objectReference: {fileID: 8300000, guid: d8a46bf4e20e2174e9ffe9338ff648e3, type: 3}
+      objectReference: {fileID: 8300000, guid: 00078e772fa738c469baffc6f8685592, type: 3}
     - target: {fileID: 8450895640722091147, guid: f4ee41dc928283146937257f15d1daef, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.2212132

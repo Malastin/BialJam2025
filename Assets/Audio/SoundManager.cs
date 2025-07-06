@@ -14,10 +14,13 @@ public class SoundManager : MonoBehaviour{
     }
     public static void PlaySound(SoundType sound, AudioSource source = null, float volume = 1){
         AudioClip clip = instance.soundList[(int)sound];
-        if (source){
+        Debug.Log(sound.ToString());
+        if (source) {
             source.clip = clip;
             source.Play();
-        } else{
+        }
+        else
+        {
             instance.audioSource.PlayOneShot(clip, volume);
         }
     }

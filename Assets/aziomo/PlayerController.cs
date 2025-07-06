@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private PlayerFighterStats playerFighterStats;
     [SerializeField] private GameObject basicAttac;
+    [SerializeField] private GameObject bestaParticle;
     private Rigidbody2D rb2D;
     private SpriteRenderer spriteRenderer;
     private CapsuleCollider2D capsuleCollider2D;
@@ -20,6 +21,7 @@ public class PlayerController : MonoBehaviour
     private GameObject tempObj;
     public PlayerStates animationState;
     [SerializeField] private Animator animator;
+    [SerializeField] private RuntimeAnimatorController bestiaAnimator;
     private bool inOtherAnimation;
     private int blockTicks;
     private bool blockNextAttack;
@@ -59,6 +61,10 @@ public class PlayerController : MonoBehaviour
         if (!ground && !grabedToWall)
         {
             rb2D.gravityScale += 0.3f;
+        }
+        if (grabedToWall)
+        {
+            rb2D.linearVelocity = new Vector2(0, 0);
         }
         if (!grabedToWall)
         {
@@ -452,6 +458,19 @@ public class PlayerController : MonoBehaviour
     public void BestiaMode()
     {
         //podmianka animatora i tyle
+        animator.runtimeAnimatorController = bestiaAnimator;
         iAmTheBestia = true;
+        StartCoroutine(spawnBloodParticles());
+        UpdateAnimationOfPlayer();
+    }
+
+    private IEnumerator spawnBloodParticles()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(0.3f);
+            var particle = Instantiate(bestaParticle, transform.parent);
+            particle.transform.position = transform.position;
+        }
     }
 }

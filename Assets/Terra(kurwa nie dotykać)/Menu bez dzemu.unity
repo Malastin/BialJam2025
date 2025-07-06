@@ -636,6 +636,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7055627239998934687, guid: aed2071600084e64e8981384b87c1f43, type: 3}
+      propertyPath: m_GridSnapping
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6961148680752586054, guid: aed2071600084e64e8981384b87c1f43, type: 3}
     m_RemovedGameObjects:

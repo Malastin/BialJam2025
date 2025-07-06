@@ -49,7 +49,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -253,4 +253,3 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 523be2e071955b041b34db636e221b7d, type: 3}
   - {fileID: 8300000, guid: 6d0b8e1dcfc05fa409fab33c3a5965bb, type: 3}
   - {fileID: 8300000, guid: 1619367f24341b144851c3705a2c6a7c, type: 3}
-  soundtrack: []

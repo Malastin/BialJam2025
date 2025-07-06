@@ -105,6 +105,24 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "SpellUp",
+                    "type": "Button",
+                    "id": "d051c271-ba5a-4728-a50e-bff62f5c982f",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SpellDown",
+                    "type": "Button",
+                    "id": "16e9e6f7-1273-4c9f-a795-fa3eddbfbdbf",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "SpellPrevious",
                     "type": "Button",
                     "id": "6ad206fa-f03f-4f20-9b6b-6f16739c4a04",
@@ -300,6 +318,28 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "SpellNext",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6b8672e5-171d-4994-b8ef-4908914d977c",
+                    "path": "<Gamepad>/dpad/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "SpellUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6d373af3-441c-4911-9a98-0e63a992cf9b",
+                    "path": "<Gamepad>/dpad/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "SpellDown",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

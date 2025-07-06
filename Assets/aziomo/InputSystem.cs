@@ -191,6 +191,24 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""SpellUp"",
+                    ""type"": ""Button"",
+                    ""id"": ""d051c271-ba5a-4728-a50e-bff62f5c982f"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SpellDown"",
+                    ""type"": ""Button"",
+                    ""id"": ""16e9e6f7-1273-4c9f-a795-fa3eddbfbdbf"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""SpellPrevious"",
                     ""type"": ""Button"",
                     ""id"": ""6ad206fa-f03f-4f20-9b6b-6f16739c4a04"",
@@ -386,6 +404,28 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""SpellNext"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6b8672e5-171d-4994-b8ef-4908914d977c"",
+                    ""path"": ""<Gamepad>/dpad/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""SpellUp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6d373af3-441c-4911-9a98-0e63a992cf9b"",
+                    ""path"": ""<Gamepad>/dpad/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""SpellDown"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1083,6 +1123,8 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         m_Player_P1Dash = m_Player.FindAction("P1Dash", throwIfNotFound: true);
         m_Player_P2Dash = m_Player.FindAction("P2Dash", throwIfNotFound: true);
         m_Player_SpellNext = m_Player.FindAction("SpellNext", throwIfNotFound: true);
+        m_Player_SpellUp = m_Player.FindAction("SpellUp", throwIfNotFound: true);
+        m_Player_SpellDown = m_Player.FindAction("SpellDown", throwIfNotFound: true);
         m_Player_SpellPrevious = m_Player.FindAction("SpellPrevious", throwIfNotFound: true);
         m_Player_SpellCast = m_Player.FindAction("SpellCast", throwIfNotFound: true);
         m_Player_SpellSelect2 = m_Player.FindAction("SpellSelect2", throwIfNotFound: true);
@@ -1193,6 +1235,8 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_P1Dash;
     private readonly InputAction m_Player_P2Dash;
     private readonly InputAction m_Player_SpellNext;
+    private readonly InputAction m_Player_SpellUp;
+    private readonly InputAction m_Player_SpellDown;
     private readonly InputAction m_Player_SpellPrevious;
     private readonly InputAction m_Player_SpellCast;
     private readonly InputAction m_Player_SpellSelect2;
@@ -1254,6 +1298,14 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/SpellNext".
         /// </summary>
         public InputAction @SpellNext => m_Wrapper.m_Player_SpellNext;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/SpellUp".
+        /// </summary>
+        public InputAction @SpellUp => m_Wrapper.m_Player_SpellUp;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/SpellDown".
+        /// </summary>
+        public InputAction @SpellDown => m_Wrapper.m_Player_SpellDown;
         /// <summary>
         /// Provides access to the underlying input action "Player/SpellPrevious".
         /// </summary>
@@ -1337,6 +1389,12 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
             @SpellNext.started += instance.OnSpellNext;
             @SpellNext.performed += instance.OnSpellNext;
             @SpellNext.canceled += instance.OnSpellNext;
+            @SpellUp.started += instance.OnSpellUp;
+            @SpellUp.performed += instance.OnSpellUp;
+            @SpellUp.canceled += instance.OnSpellUp;
+            @SpellDown.started += instance.OnSpellDown;
+            @SpellDown.performed += instance.OnSpellDown;
+            @SpellDown.canceled += instance.OnSpellDown;
             @SpellPrevious.started += instance.OnSpellPrevious;
             @SpellPrevious.performed += instance.OnSpellPrevious;
             @SpellPrevious.canceled += instance.OnSpellPrevious;
@@ -1399,6 +1457,12 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
             @SpellNext.started -= instance.OnSpellNext;
             @SpellNext.performed -= instance.OnSpellNext;
             @SpellNext.canceled -= instance.OnSpellNext;
+            @SpellUp.started -= instance.OnSpellUp;
+            @SpellUp.performed -= instance.OnSpellUp;
+            @SpellUp.canceled -= instance.OnSpellUp;
+            @SpellDown.started -= instance.OnSpellDown;
+            @SpellDown.performed -= instance.OnSpellDown;
+            @SpellDown.canceled -= instance.OnSpellDown;
             @SpellPrevious.started -= instance.OnSpellPrevious;
             @SpellPrevious.performed -= instance.OnSpellPrevious;
             @SpellPrevious.canceled -= instance.OnSpellPrevious;
@@ -1794,6 +1858,20 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnSpellNext(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "SpellUp" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSpellUp(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "SpellDown" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSpellDown(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "SpellPrevious" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>

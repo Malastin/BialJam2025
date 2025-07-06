@@ -96,19 +96,7 @@ MonoBehaviour:
     m_ActionId: e7d7d5e2-4e04-4e7a-a4bf-6c2e0ed2e21e
     m_ActionName: 'Player/P2Move[/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]'
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4288355018753699342}
-        m_TargetAssemblyTypeName: SpellManager, Assembly-CSharp
-        m_MethodName: Aim
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 6b444451-8a00-4d00-a97e-f47457f736a8
     m_ActionName: 'Player/Look[/Mouse/delta]'
   - m_PersistentCalls:
@@ -192,19 +180,7 @@ MonoBehaviour:
     m_ActionId: cf0eaf29-1a76-4026-97e5-6f800fa5a833
     m_ActionName: 'Player/P2Dash[/Keyboard/rightCtrl]'
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4288355018753699342}
-        m_TargetAssemblyTypeName: SpellManager, Assembly-CSharp
-        m_MethodName: NavigateNext
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: b7230bb6-fc9b-4f52-8b25-f5e19cb2c2ba
     m_ActionName: 'Player/Next[/Keyboard/2]'
   - m_PersistentCalls:
@@ -296,19 +272,7 @@ MonoBehaviour:
     m_ActionId: a1fad099-c3fa-4656-8b76-629d28e81017
     m_ActionName: 'Player/P2AttackSky[/Keyboard/downArrow]'
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4288355018753699342}
-        m_TargetAssemblyTypeName: SpellManager, Assembly-CSharp
-        m_MethodName: Activate
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 5c162312-5276-4cb2-91e9-65f8aa4d020c
     m_ActionName: Player/SpellCast
   - m_PersistentCalls:
@@ -324,21 +288,17 @@ MonoBehaviour:
     m_ActionId: 651f049c-b2b9-4d71-98ac-e4bf0d695989
     m_ActionName: Player/SpellSelect4
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4288355018753699342}
-        m_TargetAssemblyTypeName: SpellManager, Assembly-CSharp
-        m_MethodName: NavigatePrevious
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 6ad206fa-f03f-4f20-9b6b-6f16739c4a04
     m_ActionName: 'Player/SpellPrevious[/XInputControllerWindows/dpad/left]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d051c271-ba5a-4728-a50e-bff62f5c982f
+    m_ActionName: 'Player/SpellUp[/XInputControllerWindows/dpad/up]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 16e9e6f7-1273-4c9f-a795-fa3eddbfbdbf
+    m_ActionName: 'Player/SpellDown[/XInputControllerWindows/dpad/down]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
@@ -1189,6 +1149,38 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 6ad206fa-f03f-4f20-9b6b-6f16739c4a04
     m_ActionName: 'Player/SpellPrevious[/XInputControllerWindows/dpad/left]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4288355018753699342}
+        m_TargetAssemblyTypeName: SpellManager, Assembly-CSharp
+        m_MethodName: WImieOjca
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: d051c271-ba5a-4728-a50e-bff62f5c982f
+    m_ActionName: 'Player/SpellUp[/XInputControllerWindows/dpad/up]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4288355018753699342}
+        m_TargetAssemblyTypeName: SpellManager, Assembly-CSharp
+        m_MethodName: ISyna
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 16e9e6f7-1273-4c9f-a795-fa3eddbfbdbf
+    m_ActionName: 'Player/SpellDown[/XInputControllerWindows/dpad/down]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Player

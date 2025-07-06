@@ -82,6 +82,7 @@ public class SpellManager : MonoBehaviour
         {
             if (spellStage == SpellStage.Idle)
             {
+                Swietego(input);
                 SelectNextSpell();
             }
             if (spellStage == SpellStage.Targeting)
@@ -100,6 +101,7 @@ public class SpellManager : MonoBehaviour
         {
             if (spellStage == SpellStage.Idle)
             {
+                Iducha(input);
                 SelectPreviousSpell();
             }
             if (spellStage == SpellStage.Targeting)
@@ -281,5 +283,81 @@ public class SpellManager : MonoBehaviour
 
         // Ensure it's fully transparent at the end
         spriteRenderer.color = new Color(startColor.r, startColor.g, startColor.b, 0f);
+    }
+
+
+    // wpierdalam to tu i chuj
+    private int inputsEntered = 0;
+    public void WImieOjca(InputAction.CallbackContext input)
+    {
+        if (input.performed)
+        {
+            if (inputsEntered == 0)
+            {
+                inputsEntered++;
+                Debug.Log("W Imie Ojca");
+                Debug.Log(inputsEntered);
+
+            }
+            else
+            {
+                inputsEntered = 1;
+            }
+        }
+    }
+    public void ISyna(InputAction.CallbackContext input)
+    {
+        if (input.performed)
+        {
+            if (inputsEntered == 1)
+            {
+                inputsEntered++;
+                Debug.Log("I Syna");
+                Debug.Log(inputsEntered);
+            }
+            else
+            {
+                inputsEntered = 0;
+            }
+        }
+            
+    }
+    public void Iducha(InputAction.CallbackContext input)
+    {
+        if (input.performed)
+        {
+            if (inputsEntered == 2)
+            {
+                inputsEntered++;
+                Debug.Log("I Ducha");
+                Debug.Log(inputsEntered);
+
+            }
+            else
+            {
+                inputsEntered = 0;
+            }
+        }
+        
+    }
+    public void Swietego(InputAction.CallbackContext input)
+    {
+        if (input.performed)
+        {
+            if (inputsEntered == 3)
+            {
+                Debug.Log("Swietego");
+                Debug.Log(inputsEntered);
+
+                inputsEntered++;
+                GameManager.GetPlayerReference(0).GetComponent<PlayerController>().Crucify();
+                GameManager.GetPlayerReference(1).GetComponent<PlayerController>().Crucify();
+            }
+            else
+            {
+                inputsEntered = 0;
+            }
+        }
+            
     }
 }

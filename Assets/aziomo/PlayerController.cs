@@ -93,7 +93,8 @@ public class PlayerController : MonoBehaviour
             tryGrabing = false;
         }
 
-        if (closeToWall && wallGrabTimer <= 0 && !ground && tryGrabing && !grabedToWall){
+        if (closeToWall && wallGrabTimer <= 0 && !ground && tryGrabing && !grabedToWall)
+        {
             grabedToWall = true;
             blockMovement = true;
             inOtherAnimation = true;
@@ -104,8 +105,9 @@ public class PlayerController : MonoBehaviour
             UpdateAnimationOfPlayer();
         }
     }
-    private void Update(){
-        wallGrabTimer -= Time.deltaTime;   
+    private void Update()
+    {
+        wallGrabTimer -= Time.deltaTime;
     }
     public void Jump(InputAction.CallbackContext callback)
     {
@@ -140,7 +142,7 @@ public class PlayerController : MonoBehaviour
 
     public void Dash(InputAction.CallbackContext callback)
     {
-        if (canDash && callback.phase == InputActionPhase.Started && !isDeath && !grabedToWall && inputMovement.x != 0 )
+        if (canDash && callback.phase == InputActionPhase.Started && !isDeath && !grabedToWall && inputMovement.x != 0)
         {
             StartCoroutine(DashCorutine());
             canDash = false;
@@ -208,7 +210,7 @@ public class PlayerController : MonoBehaviour
             return;
         }
         inputMovement = input.ReadValue<Vector2>();
-        
+
         if (inputMovement.x != 0 && !grabedToWall)
         {
             animationState = PlayerStates.run;
@@ -440,5 +442,10 @@ public class PlayerController : MonoBehaviour
             grabedToWall = false;
             UpdateAnimationOfPlayer();
         }
+    }
+
+    public void Crucify()
+    {
+        animator.Play("Crucifiction");
     }
 }

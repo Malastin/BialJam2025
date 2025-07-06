@@ -448,4 +448,10 @@ public class PlayerController : MonoBehaviour
     {
         animator.Play("Crucifiction");
     }
+
+    public void BestiaMode()
+    {
+        //podmianka animatora i tyle
+        iAmTheBestia = true;
+    }
 }

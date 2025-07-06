@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: b3f1b835a90f39948b350e35edfdc19d
+guid: 0af86f368f18f1441a58c2de5c0e186c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1128826867356018621
-    second: BOX_0
+      213: -2805885985551946610
+    second: TyJestes_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BOX_0
+      name: TyJestes_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 16
-        height: 16
+        width: 39
+        height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 348d356e1f99550f0800000000000000
-      internalID: -1128826867356018621
+      spriteID: e8cede6ff8d7f09d0800000000000000
+      internalID: -2805885985551946610
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      BOX_0: -1128826867356018621
+      TyJestes_0: -2805885985551946610
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

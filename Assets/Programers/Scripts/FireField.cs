@@ -9,12 +9,12 @@ public class FireField : AreaOfEffectSpell
     private void Start()
     {
         StartCoroutine(FireTick());
-        Destroy(gameObject, 5f);
+        boxCollider2D.enabled = false;
     }
 
     private IEnumerator FireTick()
     {
-        int tick = 47;
+        int tick = 10;
         while (true)
         {
             if (tick > 0)

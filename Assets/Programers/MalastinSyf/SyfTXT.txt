@@ -38,3 +38,8 @@ Czary maga
 	- Zamienienie graczy na stałe
 	- Atak szału (Gracz traci na chwile kontrole i akcje podejmuje losowo)
 	- zabijanie graczy
+	
+	
+- Naprawione proszuanie paska do rzucania czarów
+
+- Spawn pola spowalniającego nie działa i pola podpalającego

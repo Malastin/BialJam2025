@@ -4,6 +4,7 @@ public class ExplosionField : AreaOfEffectSpell
 {
     public float explosionPower;
     public int explosionDamage;
+    [SerializeField] private bool destroyMe;
 
     public override void CastSpell()
     {
@@ -30,7 +31,10 @@ public class ExplosionField : AreaOfEffectSpell
                 collision.GetComponent<Rigidbody2D>().linearVelocity += new Vector2(-explosionPower, 0);
             }
 
-            Destroy(gameObject);
+            if (destroyMe)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }

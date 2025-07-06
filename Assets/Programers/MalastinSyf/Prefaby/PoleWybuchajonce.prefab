@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3466749844728605723}
   - component: {fileID: 7051571090222032324}
   - component: {fileID: 7431903984757802247}
-  - component: {fileID: 6351351918009233710}
+  - component: {fileID: -1060244072736926915}
   m_Layer: 0
   m_Name: PoleWybuchajonce
   m_TagString: Untagged
@@ -101,10 +101,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3adff9a167e44a34d8aefd043fec62bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spellName: 
+  icon: {fileID: 0}
+  spellDamage: 0
+  cooldown: 0
+  growthRate: 0
+  decayTime: 0
   explosionPower: 70
   explosionDamage: 0
---- !u!58 &6351351918009233710
-CircleCollider2D:
+  destroyMe: 1
+--- !u!61 &-1060244072736926915
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -138,4 +145,14 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0

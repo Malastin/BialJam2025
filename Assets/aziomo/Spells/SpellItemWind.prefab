@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spellName: Wind Gust
-  icon: {fileID: 8605956544606621573, guid: 07dc36066cd16a9418267ddfc8a23137, type: 3}
+  icon: {fileID: 4578591244471777430, guid: 28c75836a0f13d248bc42d78e267429c, type: 3}
   spellDamage: 0
   cooldown: 0
   target: {fileID: 0}

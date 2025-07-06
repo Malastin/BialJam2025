@@ -15,26 +15,17 @@ public class ChestRain : AreaOfEffectSpell
         }
         Vector2 center = spriteRenderer.bounds.center;
         Vector2 size = spriteRenderer.bounds.size;
-        int numberOfChests = 5; // Number of chests to spawn
+        int numberOfChests = 2; // Number of chests to spawn
         for (int i = 0; i < numberOfChests; i++)
         {
-            float randomX = Random.Range(center.x - size.x / 2, center.x + size.x / 2); // chujowo to dziala dlatego pierdole to teraz
-            float randomY = Random.Range(center.y - size.y / 2, center.y + size.y / 2);
+            float randomX = Random.Range(-transform.localScale.x, transform.localScale.x); // chujowo to dziala dlatego pierdole to teraz -> JEST JUZ GIT POZDRO
+            float randomY = Random.Range(0, 5);
             Vector2 spawnPosition = new Vector2(randomX, randomY);
-            Instantiate(chestPrefab, spawnPosition, Quaternion.identity);
+            var box = Instantiate(chestPrefab, transform.parent);
+            box.transform.position = transform.position;
+            box.transform.position = new Vector3(SpellManager.platformaX, 0, 0);
+            box.transform.position += (Vector3)spawnPosition;
         }
 
-    }
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

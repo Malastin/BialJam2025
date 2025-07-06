@@ -23,6 +23,7 @@ public class SpellManager : MonoBehaviour
 
     public Vector3 areaMarkerRestingPosition;
     public float castingSpeed = 0.001f;
+    public static float platformaX;
 
     private GameObject selectedSpell
     {
@@ -43,6 +44,7 @@ public class SpellManager : MonoBehaviour
 
     void Update()
     {
+        platformaX = spellAreaMarker.transform.position.x;
         if (selectedSpellBehavior is AreaOfEffectSpell && spellStage == SpellStage.Targeting)
         {
             if (spellAreaMarker != null)
@@ -65,7 +67,7 @@ public class SpellManager : MonoBehaviour
                 line.SetPositions(points);
 
                 // marker position
-                Vector3 newPos = spellAreaMarker.transform.position + (Vector3)(aimDirection * aimSpeed);
+                Vector3 newPos = spellAreaMarker.transform.position + new Vector3(aimDirection.x * aimSpeed, 0f, 0f);
                 Camera cam = Camera.main;
                 float halfWidth = cam.orthographicSize * cam.aspect;
                 float minX = cam.transform.position.x - halfWidth;
@@ -257,14 +259,14 @@ public class SpellManager : MonoBehaviour
         if (spellInstance != null)
         {
             var spriteRenderer = selectedSpell.GetComponent<SpriteRenderer>();
-            if (spriteRenderer != null)
+            /*if (spriteRenderer != null)
             {
                 spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, 0.5f);
             }
             else
             {
                 Debug.LogWarning("SpriteRenderer not found on SpellArea!");
-            }
+            }*/
         }
     }
 

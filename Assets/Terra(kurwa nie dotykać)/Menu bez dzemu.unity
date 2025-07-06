@@ -449,6 +449,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &282653128 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 4309977549263747734, guid: f4ee41dc928283146937257f15d1daef, type: 3}
+  m_PrefabInstance: {fileID: 697856449}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &319285393
 GameObject:
   m_ObjectHideFlags: 0
@@ -770,6 +775,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoundManager
       objectReference: {fileID: 0}
+    - target: {fileID: 2643157806110954863, guid: f4ee41dc928283146937257f15d1daef, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 282653128}
     - target: {fileID: 2643157806110954863, guid: f4ee41dc928283146937257f15d1daef, type: 3}
       propertyPath: soundList.Array.size
       value: 10

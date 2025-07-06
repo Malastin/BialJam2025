@@ -4,10 +4,9 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour{
     [SerializeField] private AudioClip[] soundList;
     private static SoundManager instance;
-    private AudioSource audioSource;
+    public AudioSource audioSource;
     private void Awake(){
         instance = this;
-        audioSource = GetComponent<AudioSource>();
         DontDestroyOnLoad(gameObject);
     }
     public static void StopSound(){

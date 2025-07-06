@@ -106,6 +106,7 @@ MonoBehaviour:
   health: 4
   explosionObj: {fileID: 7554415547642203882, guid: 7c3e0f06ee7c3c44d90e1968a2592d6b, type: 3}
   particles: {fileID: 3234093568990887138, guid: 9822c83ac15a2de4cb180cd8eec3db13, type: 3}
+  particles2: {fileID: 3234093568990887138, guid: 674c0efb2addc6043b7ba09d7cb08c0c, type: 3}
 --- !u!114 &607788492299421813
 MonoBehaviour:
   m_ObjectHideFlags: 0

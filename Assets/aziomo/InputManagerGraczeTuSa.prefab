@@ -395,10 +395,12 @@ MonoBehaviour:
   - {fileID: 6082078256326257047, guid: 1679856f5f0321f47b7bf7f7df8b718a, type: 3}
   - {fileID: 8196482752642801990, guid: e511619dc32ad4f498c2e9810199cf0e, type: 3}
   - {fileID: 7393320360552290820, guid: 3a5b6cbb13bc4aa41bd240fdb270afaf, type: 3}
+  - {fileID: 5424430678666328841, guid: 5c61db8935a7fb24e8e07a440a98b201, type: 3}
   selectedSpellIndex: 0
   spellTargetMarker: {fileID: 2960555253109957842}
   spellAreaMarker: {fileID: 5460888592594210260}
   spellAreaPrefab: {fileID: 7476975430387503520, guid: e976408162156ea47a2a6d83496ff4a6, type: 3}
+  aimSpeed: 0.05
   areaMarkerRestingPosition: {x: 0, y: 0, z: 0}
   castingSpeed: 0.001
 --- !u!212 &7245278415430554195
@@ -1543,6 +1545,7 @@ MonoBehaviour:
   wallXisBigger: 0
   dashCooldown: 0
   wallGrabCooldown: 0.2
+  iAmTheBestia: 0
 --- !u!95 &7676359058704512040
 Animator:
   serializedVersion: 7
@@ -2252,6 +2255,7 @@ MonoBehaviour:
   wallXisBigger: 0
   dashCooldown: 0
   wallGrabCooldown: 0.2
+  iAmTheBestia: 0
 --- !u!95 &486115841997217802
 Animator:
   serializedVersion: 7

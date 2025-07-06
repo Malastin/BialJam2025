@@ -193,8 +193,11 @@ public class SpellManager : MonoBehaviour
         if (selectedSpellBehavior is AreaOfEffectSpell)
         {
             spellInstance = Instantiate(selectedSpell, spellAreaMarker.transform.position, Quaternion.identity);
+            Debug.Log("spellareamarker position " + spellAreaMarker.transform.position);
+            Debug.Log("spellinstance position " + spellInstance.transform.position);
             spellInstance.transform.SetParent(transform);
-            
+            Debug.Log("spellinstance position " + spellInstance.transform.position);
+
             ResetSpellAreaOpacity();
             SetSpellAreaWidth();
             // FadeOutSpellArea();

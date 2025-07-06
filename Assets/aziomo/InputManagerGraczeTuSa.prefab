@@ -331,7 +331,7 @@ Transform:
   m_GameObject: {fileID: 1541027739027088752}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 5.5, z: 0}
+  m_LocalPosition: {x: 0, y: 3.125, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1528,6 +1528,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerFighterStats: {fileID: 6537353119869350622}
   basicAttac: {fileID: 7669368328437481993, guid: d3b67af00d2eaf14e8a411b3e3c98472, type: 3}
+  bestaParticle: {fileID: 4855321693813184599, guid: 9493eaf67ee08ab46b46179b4dbcbace, type: 3}
   damageEffect: {fileID: 0}
   speed: 25
   jumpPower: 20
@@ -2238,6 +2239,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerFighterStats: {fileID: 3266121261196191893}
   basicAttac: {fileID: 7669368328437481993, guid: d3b67af00d2eaf14e8a411b3e3c98472, type: 3}
+  bestaParticle: {fileID: 4855321693813184599, guid: 9493eaf67ee08ab46b46179b4dbcbace, type: 3}
   damageEffect: {fileID: 0}
   speed: 25
   jumpPower: 20

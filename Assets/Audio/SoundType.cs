@@ -5,7 +5,6 @@ public enum SoundType
     Attack,
     Hit,
     Spell,
-    Walk,
     Jump,
     Dash,
     Klincz,

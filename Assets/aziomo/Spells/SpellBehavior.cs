@@ -13,6 +13,7 @@ public abstract class SpellBehavior : MonoBehaviour
 public abstract class TargetedSpell : SpellBehavior
 {
     public GameObject target;
+    public Vector3 aimDirection;
 }
 
 public abstract class AreaOfEffectSpell : SpellBehavior

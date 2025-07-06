@@ -16,6 +16,7 @@ public class SpellManager : MonoBehaviour
     public GameObject spellTargetMarker;
     public GameObject spellAreaMarker;
     public GameObject spellAreaPrefab;
+    public float aimSpeed = 0.05f;
     private GameObject spellInstance;
     private SpellStage spellStage = SpellStage.Idle;
     private SpriteRenderer selectedSpellIcon;
@@ -46,12 +47,31 @@ public class SpellManager : MonoBehaviour
         {
             if (spellAreaMarker != null)
             {
+                // marker width
                 var line = spellAreaMarker.GetComponent<LineRenderer>();
                 Vector3[] points = new Vector3[2];
                 line.GetPositions(points);
-                points[0] = points[0] + Vector3.left * castingSpeed;
-                points[1] = points[1] + Vector3.right * castingSpeed;
+                Camera camForLine = Camera.main;
+                float halfWidthForLine = camForLine.orthographicSize * camForLine.aspect;
+                float maxLineWidth = (halfWidthForLine * 2f) / 3f;
+                Vector3 center = (points[0] + points[1]) / 2f;
+                float currentHalfLength = Vector3.Distance(points[0], points[1]) / 2f;
+                float newHalfLength = currentHalfLength + castingSpeed;
+                float clampedHalfLength = Mathf.Min(newHalfLength, maxLineWidth / 2f);
+                Vector3 dir = (points[1] - points[0]).normalized;
+                if (dir == Vector3.zero) dir = Vector3.right;
+                points[0] = center - dir * clampedHalfLength;
+                points[1] = center + dir * clampedHalfLength;
                 line.SetPositions(points);
+
+                // marker position
+                Vector3 newPos = spellAreaMarker.transform.position + (Vector3)(aimDirection * aimSpeed);
+                Camera cam = Camera.main;
+                float halfWidth = cam.orthographicSize * cam.aspect;
+                float minX = cam.transform.position.x - halfWidth;
+                float maxX = cam.transform.position.x + halfWidth;
+                newPos.x = Mathf.Clamp(newPos.x, minX, maxX);
+                spellAreaMarker.transform.position = newPos;
             }
         }
     }
@@ -92,30 +112,26 @@ public class SpellManager : MonoBehaviour
         }
     }
 
+    private Vector2 aimDirection;
+
     public void Aim(InputAction.CallbackContext input)
     {
-        if (spellStage != SpellStage.Targeting || !(selectedSpellBehavior is AreaOfEffectSpell))
+        if (spellStage != SpellStage.Targeting)
         {
             return;
         }
         if (input.performed)
         {
-            Vector2 aimDirection = input.ReadValue<Vector2>();
-            aimDirection.y = 0;
+            aimDirection = input.ReadValue<Vector2>();
 
-            // discard input taking into account analog stick deadzone
-            if (aimDirection.magnitude < 0.05f)
+            // discard deadzone noise
+            if (aimDirection.magnitude < 0.75f)
             {
                 aimDirection = Vector2.zero;
             }
-
-            if (spellAreaMarker != null)
+            if (selectedSpellBehavior is AreaOfEffectSpell)
             {
-                spellAreaMarker.transform.position = (Vector2)areaMarkerRestingPosition + aimDirection * 5.0f;
-            }
-            else
-            {
-                Debug.LogWarning("Spell crosshair is not assigned!");
+                aimDirection.y = 0;
             }
         }
     }
@@ -189,6 +205,7 @@ public class SpellManager : MonoBehaviour
         if (selectedSpellBehavior is TargetedSpell)
         {
             (selectedSpellBehavior as TargetedSpell).target = spellTargetMarker.GetComponent<TargetMarkerController>().target.gameObject;
+            (selectedSpellBehavior as TargetedSpell).aimDirection = aimDirection;
             selectedSpellBehavior.CastSpell();
         }
     }

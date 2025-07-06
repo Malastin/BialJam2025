@@ -12,7 +12,8 @@ public class WindGust : TargetedSpell
             return;
         }
 
-        float direction = Random.value < 0.5f ? -1f : 1f;
-        target.GetComponent<Rigidbody2D>().linearVelocity += new Vector2(gustForce * direction, 0);
+        Debug.Log($"Casting WindGust on {target.name} with force {gustForce} and direction {aimDirection}");
+        Vector2 gustDirection = aimDirection.normalized;
+        target.GetComponent<Rigidbody2D>().linearVelocity += gustDirection * gustForce;
     }
 }

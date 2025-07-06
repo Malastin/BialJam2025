@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour{
             napis.transform.position = playerReferences[rng].transform.position;
             napis.transform.position += new Vector3(0, 1, 0);
             Destroy(napis, 2f);
-            SoundManager.PlaySound(SoundType.YouAreMonster);
+            SoundManager.PlaySound(SoundType.YouAreMonster, null, 5);
 
             Debug.Log("Gracz " + rng + " zostal bestiom");
         }

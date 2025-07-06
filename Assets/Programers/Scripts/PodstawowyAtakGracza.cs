@@ -9,7 +9,7 @@ public class PodstawowyAtakGracza : MonoBehaviour
 
     private void Start()
     {
-        SoundManager.PlaySound(SoundType.Attack);
+        SoundManager.PlaySound(SoundType.Attack, null, 2);
         if (killOnTime)
         {
             Destroy(gameObject, 0.1f);

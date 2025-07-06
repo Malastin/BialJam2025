@@ -31,6 +31,8 @@ public class PlayerController : MonoBehaviour
     private bool tryGrabing;
     private bool isDeath;
     public float dashCooldown;
+    public float wallGrabCooldown = .8f;
+    private float wallGrabTimer;
     private void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
@@ -90,22 +92,20 @@ public class PlayerController : MonoBehaviour
             tryGrabing = false;
         }
 
-        if (closeToWall && Mathf.Abs(rb2D.linearVelocityY) < 2.8f && !ground && tryGrabing)
-        {
-            if (!grabedToWall)
-            {
-                grabedToWall = true;
-                blockMovement = true;
-                inOtherAnimation = true;
-                spriteRenderer.flipX = wallXisBigger;
-                rb2D.linearVelocity = Vector2.zero;
-                animationState = PlayerStates.grabedToWall;
-                rb2D.gravityScale = 0;
-                UpdateAnimationOfPlayer();
-            }
+        if (closeToWall && wallGrabTimer <= 0 && !ground && tryGrabing && !grabedToWall){
+            grabedToWall = true;
+            blockMovement = true;
+            inOtherAnimation = true;
+            spriteRenderer.flipX = wallXisBigger;
+            rb2D.linearVelocity = Vector2.zero;
+            animationState = PlayerStates.grabedToWall;
+            rb2D.gravityScale = 0;
+            UpdateAnimationOfPlayer();
         }
     }
-
+    private void Update(){
+        wallGrabTimer -= Time.deltaTime;   
+    }
     public void Jump(InputAction.CallbackContext callback)
     {
         if (grabedToWall && callback.phase == InputActionPhase.Started && !isDeath)
@@ -120,6 +120,7 @@ public class PlayerController : MonoBehaviour
                 rb2D.linearVelocityX += 10;
             }
             grabedToWall = false;
+            wallGrabTimer = wallGrabCooldown;
             inOtherAnimation = false;
             blockMovement = false;
             animationState = PlayerStates.idle;

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PlayerFighterStats : MonoBehaviour, IHealth
 {
-    //wszystkie zmienne narazie publiczne potem b�dziemy kombinowa� by zmniejszy� ilo�� syfu
+    //wszystkie zmienne narazie publiczne potem b�dziemy kombinowa� by zmniejszy� ilo�� syfu   "POTEM"
     //animacje chodzenie skalowac z movespeedem a niamacjie ataku z attack speedem
 
     private int health;
@@ -53,7 +53,7 @@ public class PlayerFighterStats : MonoBehaviour, IHealth
     {
         isAlredyDeath = true;
         //tutaj damy wywo�anie funkcji do jakiegos cora aby zatrzyam� walk� i da� ekran podsumowuj�cy gre
-        //co� w stylu �e walka trwa�a x czasu, mag u�y� x czar�w i mo�liwo�c zacz�cia kolejnej walki
+        //co� w stylu �e walka trwa�a x czasu, mag u�y� x czar�w i mo�liwo�c zacz�cia kolejnej walki chuj
         playerController.DeatchAnimationTrigger();
         StartCoroutine(LoadNextGame());
     }

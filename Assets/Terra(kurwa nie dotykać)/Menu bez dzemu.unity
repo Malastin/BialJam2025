@@ -1197,7 +1197,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: a8753bde51cb8124f9524f9ec74dad2f, type: 2}
     - target: {fileID: 6474873676169816103, guid: 490a4fcad1e157641a6b18ee0e92003e, type: 3}
       propertyPath: m_fontSizeBase
-      value: 20
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6474873676169816103, guid: 490a4fcad1e157641a6b18ee0e92003e, type: 3}
       propertyPath: m_sharedMaterial

@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
     public float dashCooldown;
     public float wallGrabCooldown = .8f;
     private float wallGrabTimer;
+    public bool iAmTheBestia;
     private void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
@@ -241,7 +242,14 @@ public class PlayerController : MonoBehaviour
                 obj.transform.localPosition += new Vector3(0.5f, 0, 0);
             }
             obj.GetComponent<PodstawowyAtakGracza>().caster = gameObject;
-            obj.GetComponent<PodstawowyAtakGracza>().damage = 2;
+            if (iAmTheBestia)
+            {
+                obj.GetComponent<PodstawowyAtakGracza>().damage = 6;
+            }
+            else
+            {
+                obj.GetComponent<PodstawowyAtakGracza>().damage = 2;
+            }
             obj.GetComponent<PodstawowyAtakGracza>().killOnTime = true;
             blockNextAttack = true;
             inOtherAnimation = true;
@@ -261,7 +269,14 @@ public class PlayerController : MonoBehaviour
             obj.transform.localPosition += new Vector3(0, -0.4f, 0);
             obj.transform.localEulerAngles += new Vector3(0, 0, 90);
             obj.GetComponent<PodstawowyAtakGracza>().caster = gameObject;
-            obj.GetComponent<PodstawowyAtakGracza>().damage = 4;
+            if (iAmTheBestia)
+            {
+                obj.GetComponent<PodstawowyAtakGracza>().damage = 12;
+            }
+            else
+            {
+                obj.GetComponent<PodstawowyAtakGracza>().damage = 4;
+            }
             obj.GetComponent<PodstawowyAtakGracza>().killOnTime = false;
             tempObj = obj;
             blockMovement = true;

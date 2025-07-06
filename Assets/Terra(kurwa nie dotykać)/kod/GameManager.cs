@@ -37,7 +37,6 @@ public class GameManager : MonoBehaviour{
         monsterSelected = false;
         ResurrectPlayers();
     }
-
     private void Update()
     {
         if (timeToMonster > 0)

@@ -1534,7 +1534,7 @@ MonoBehaviour:
   jumpPower: 20
   animationState: 0
   animator: {fileID: 7676359058704512040}
-  bestiaAnimator: {fileID: 9100000, guid: 95ac1b2f2af889546a2f41ac00d818c5, type: 2}
+  bestiaAnimator: {fileID: 9100000, guid: 192d726f56f6f4c4ebedb491de0e4f7a, type: 2}
   grabedToWall: 0
   wallXisBigger: 0
   dashCooldown: 0
@@ -2246,7 +2246,7 @@ MonoBehaviour:
   jumpPower: 20
   animationState: 0
   animator: {fileID: 486115841997217802}
-  bestiaAnimator: {fileID: 9100000, guid: 38b9f5025e38f6f43b2562cad4b6bfbe, type: 2}
+  bestiaAnimator: {fileID: 9100000, guid: 192d726f56f6f4c4ebedb491de0e4f7a, type: 2}
   grabedToWall: 0
   wallXisBigger: 0
   dashCooldown: 0

@@ -9,6 +9,7 @@ public class PodstawowyAtakGracza : MonoBehaviour
 
     private void Start()
     {
+        SoundManager.PlaySound(SoundType.Attack);
         if (killOnTime)
         {
             Destroy(gameObject, 0.1f);
@@ -18,9 +19,11 @@ public class PodstawowyAtakGracza : MonoBehaviour
     private void OnDestroy(){
         if (lastTargetObj == null) return;
         CameraShaker.StartCameraShake(2, 0.1f);
-        
-        if (lastTargetObj.TryGetComponent(out Box box)) {
+
+        if (lastTargetObj.TryGetComponent(out Box box))
+        {
             lastTargetObj.GetComponent<IHealth>().Damage(damage);
+            SoundManager.PlaySound(SoundType.Hit);
         }
         
         if (lastTargetObj.TryGetComponent(out PlayerController player)){
@@ -30,6 +33,11 @@ public class PodstawowyAtakGracza : MonoBehaviour
             if (lastTargetObj.GetComponent<PlayerController>().animationState != PlayerStates.normalAttack)
             {
                 lastTargetObj.GetComponent<IHealth>().Damage(damage);
+                SoundManager.PlaySound(SoundType.Hit);
+            }
+            else
+            {
+                SoundManager.PlaySound(SoundType.Klincz);
             }
             if (caster.transform.position.x < lastTargetObj.transform.position.x)
             {

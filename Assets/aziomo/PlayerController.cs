@@ -119,6 +119,7 @@ public class PlayerController : MonoBehaviour
     {
         if (grabedToWall && callback.phase == InputActionPhase.Started && !isDeath)
         {
+            SoundManager.PlaySound(SoundType.Jump);
             rb2D.linearVelocityY += jumpPower;
             if (spriteRenderer.flipX)
             {
@@ -139,6 +140,7 @@ public class PlayerController : MonoBehaviour
         }
         if (jumpsAmount > 0 && callback.phase == InputActionPhase.Started && !isDeath)
         {
+            SoundManager.PlaySound(SoundType.Jump);
             rb2D.linearVelocityY += jumpPower;
             jumpsAmount--;
             animationState = PlayerStates.idle;
@@ -150,6 +152,7 @@ public class PlayerController : MonoBehaviour
     {
         if (canDash && callback.phase == InputActionPhase.Started && !isDeath && !grabedToWall && inputMovement.x != 0)
         {
+            SoundManager.PlaySound(SoundType.Dash);
             StartCoroutine(DashCorutine());
             canDash = false;
             inOtherAnimation = true;

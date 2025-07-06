@@ -158,6 +158,7 @@ public class SpellManager : MonoBehaviour
             }
             else if (spellStage == SpellStage.Targeting)
             {
+                SoundManager.PlaySound(SoundType.Spell);
                 CastSpell(input);
                 spellStage = SpellStage.Idle;
                 if (selectedSpellBehavior is TargetedSpell)

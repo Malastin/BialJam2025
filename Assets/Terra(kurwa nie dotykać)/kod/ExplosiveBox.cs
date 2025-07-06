@@ -6,10 +6,9 @@ public class ExplosiveBox : Box{
     [SerializeField] private GameObject particles;
     [SerializeField] private GameObject particles2;
 
-    protected override void Death(){
+    protected override void Death()
+    {
         GetComponent<DamageEffect>().TriggerDamageSplash();
-        Debug.Log("BOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOM");
-        Destroy(gameObject);
 
         var spawnExplosion = Instantiate(explosionObj, transform.parent);
         spawnExplosion.transform.position = transform.position;
@@ -18,5 +17,7 @@ public class ExplosiveBox : Box{
         spawnParticles.transform.position = transform.position;
         var spawnParticles2 = Instantiate(particles2, transform.parent);
         spawnParticles2.transform.position = transform.position;
+        
+        Destroy(gameObject);
     }
 }

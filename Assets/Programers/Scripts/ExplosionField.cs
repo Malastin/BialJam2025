@@ -5,7 +5,9 @@ public class ExplosionField : AreaOfEffectSpell
     public float explosionPower;
     public int explosionDamage;
     [SerializeField] private bool destroyMe;
-
+    private void Awake(){
+        SoundManager.PlaySound(SoundType.Explosion);
+    }
     public override void CastSpell()
     {
         return;

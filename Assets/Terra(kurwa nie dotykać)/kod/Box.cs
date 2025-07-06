@@ -10,6 +10,7 @@ public class Box : MonoBehaviour, IHealth{
         }
     }
     protected virtual void Death(){
+        SoundManager.PlaySound(SoundType.BoxDestroy);
         Destroy(gameObject);
     }
     public void Heal(int heal){}

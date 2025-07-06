@@ -3,16 +3,12 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class SoundManager : MonoBehaviour{
     [SerializeField] private AudioClip[] soundList;
-    [SerializeField] private AudioClip[] soundtrack;
-    private static SoundManager instance = null;
+    private static SoundManager instance;
     private AudioSource audioSource;
-
     private void Awake(){
-        if (!instance){
-            instance = this;
-            audioSource = GetComponent<AudioSource>();
-            DontDestroyOnLoad(gameObject);
-        }
+        instance = this;
+        audioSource = GetComponent<AudioSource>();
+        DontDestroyOnLoad(gameObject);
     }
     public static void StopSound(){
         instance.audioSource.Stop();

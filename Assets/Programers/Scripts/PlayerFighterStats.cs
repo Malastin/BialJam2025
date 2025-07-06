@@ -54,6 +54,7 @@ public class PlayerFighterStats : MonoBehaviour, IHealth
         isAlredyDeath = true;
         //tutaj damy wywo�anie funkcji do jakiegos cora aby zatrzyam� walk� i da� ekran podsumowuj�cy gre
         //co� w stylu �e walka trwa�a x czasu, mag u�y� x czar�w i mo�liwo�c zacz�cia kolejnej walki chuj
+        SoundManager.PlaySound(SoundType.Death);
         playerController.DeatchAnimationTrigger();
         StartCoroutine(LoadNextGame());
     }

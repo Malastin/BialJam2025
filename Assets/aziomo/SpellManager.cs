@@ -58,7 +58,7 @@ public class SpellManager : MonoBehaviour
                 float maxLineWidth = (halfWidthForLine * 2f) / 3f;
                 Vector3 center = (points[0] + points[1]) / 2f;
                 float currentHalfLength = Vector3.Distance(points[0], points[1]) / 2f;
-                float newHalfLength = currentHalfLength + castingSpeed;
+                float newHalfLength = currentHalfLength + castingSpeed * Time.deltaTime * 1000;
                 float clampedHalfLength = Mathf.Min(newHalfLength, maxLineWidth / 2f);
                 Vector3 dir = (points[1] - points[0]).normalized;
                 if (dir == Vector3.zero) dir = Vector3.right;

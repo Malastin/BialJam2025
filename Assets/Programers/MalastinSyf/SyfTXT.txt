@@ -32,6 +32,8 @@ Czary maga
 	- (Done)Zmniejszenie powiększenie gracza
 	- (Alberto chyba zrobił)rzucenie gracza w pizdu
 	
+	FF00EB
+	
 	(Może damy)
 	- Zamienienie graczy na stałe
 	- Atak szału (Gracz traci na chwile kontrole i akcje podejmuje losowo)
